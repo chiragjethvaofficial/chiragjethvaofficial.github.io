@@ -38,11 +38,19 @@ for (const file of readdirSync(APPS)) {
   console.log(`icon  ${file} → ${slug}.webp  (${(before / 1024).toFixed(0)} KB → ${(out.length / 1024).toFixed(0)} KB)`)
 }
 
-// Favicons + PWA / home-screen icons from the profile photo (public/images/avatar.webp).
+// Favicons + PWA / home-screen icons from the profile photo (public/images/avatar.webp),
+// or, without a photo, from the profile initials on the brand gradient.
 // Browser tabs and Google results get a round crop; iOS and maskable icons stay
 // square because the OS applies its own mask.
 const AVATAR = join(PUBLIC, 'images/avatar.webp')
-const square = (size) => sharp(AVATAR).resize(size, size, { fit: 'cover', kernel: 'lanczos3' }).png().toBuffer()
+const profileName = readFileSync(join(ROOT_DIR, 'src/data/portfolio.js'), 'utf8').match(/name: '([^']+)'/)[1]
+const initials = profileName.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase()
+const source = existsSync(AVATAR)
+  ? AVATAR
+  : Buffer.from(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#047857"/></linearGradient></defs><rect width="512" height="512" fill="url(#g)"/><text x="256" y="256" dy="0.35em" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="230" font-weight="700" fill="#fff">${initials}</text></svg>`,
+    )
+const square = (size) => sharp(source).resize(size, size, { fit: 'cover', kernel: 'lanczos3' }).png().toBuffer()
 const round = async (size) =>
   sharp(await square(size))
     .composite([{ input: Buffer.from(`<svg width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}"/></svg>`), blend: 'dest-in' }])
@@ -76,4 +84,4 @@ for (const [name, size, make] of [
   ['apple-touch-icon.png', 180, square],
   ['maskable-512.png', 512, square],
 ]) writeFileSync(join(PUBLIC, name), await make(size))
-console.log(`pwa   favicon + icons written from avatar · app icons saved ${(saved / 1024).toFixed(0)} KB`)
+console.log(`pwa   favicon + icons written from ${source === AVATAR ? 'avatar' : `initials (${initials})`} ·app icons saved ${(saved / 1024).toFixed(0)} KB`)

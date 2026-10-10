@@ -9,7 +9,7 @@ import { personSchema, useSeo } from '../composables/seo'
 
 useSeo({
   title: 'Contact — Hire an Android Developer',
-  description: 'Get in touch with Ravi Sorathiya for Android app development in Kotlin and Jetpack Compose — by email, on X or Instagram.',
+  description: 'Get in touch with Chirag Jethva for Android app development in Kotlin and Jetpack Compose — by email or on GitHub.',
   path: '/contact',
   jsonLd: [{ '@type': 'ContactPage', mainEntity: personSchema }],
 })
@@ -68,6 +68,7 @@ const input =
         </div>
 
         <button
+          v-if="support"
           class="card group mt-8 flex w-full items-center gap-4 p-5 text-left transition hover:border-amber-400"
           @click="supportOpen = true"
         >
@@ -80,7 +81,7 @@ const input =
           </span>
           <AppIcon name="arrow" class="size-4 text-slate-400 transition group-hover:translate-x-0.5 group-hover:text-amber-500" />
         </button>
-        <SupportDialog v-model="supportOpen" />
+        <SupportDialog v-if="support" v-model="supportOpen" />
       </div>
 
       <form class="card space-y-5 p-6 sm:p-8" @submit.prevent="send">

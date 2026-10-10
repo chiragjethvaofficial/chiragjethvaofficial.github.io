@@ -1,7 +1,7 @@
 <script setup>
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
-// Live keycaps for the site-wide search (blog: find-ravi-sorathiya-android-developer).
+// Live keycaps for the site-wide search (blog: find-chirag-jethva-android-developer).
 // The keys press down as you hold them; the button sends the same shortcut the palette listens for.
 const mod = ref('Ctrl') // swapped to ⌘ on Apple devices after mount (SSR-safe)
 const modDown = ref(false)

@@ -6,7 +6,7 @@ import AppIcon from '../AppIcon.vue'
 import Avatar3D from '../Avatar3D.vue'
 
 // A 3D business card that tilts toward the pointer and flips to show every way to reach me
-// (blog: find-ravi-sorathiya-android-developer).
+// (blog: find-chirag-jethva-android-developer).
 const DOMAIN = new URL(SITE_URL).host
 const flipped = ref(false)
 const tilt = reactive({ x: 0, y: 0, gx: 50, gy: 50, on: false })

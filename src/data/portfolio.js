@@ -10,16 +10,16 @@ import { posts, projects } from '../content'
 const liveCount = projects.filter((p) => p.status === 'live').length
 
 export const profile = {
-  name: 'Ravi Sorathiya',
+  name: 'Chirag Jethva',
   role: 'Android Developer',
   roles: ['Android Developer', 'Kotlin & Jetpack Compose', 'Shipping apps to Google Play', 'Clean Architecture fan'],
   tagline:
     'I build and ship Android apps people use every day — dialers, SMS messengers, galleries, calendars and a full PDF editor.',
   location: 'India',
-  email: 'ravisorathiya1756@gmail.com',
+  email: 'chiragjethvaofficial@gmail.com',
   resumeUrl: '', // e.g. '/resume.pdf' after adding the file to /public
   availableForWork: true,
-  avatar: '/images/avatar.webp', // from the X profile picture; '' shows initials instead
+  avatar: '', // TODO: add a photo as /public/images/avatar.webp and set '/images/avatar.webp'; '' shows initials
   shortBio:
     `Android developer working in Kotlin and Jetpack Compose. I have shipped ${liveCount} apps to Google Play — from default dialers and SMS clients that take over core phone roles, to media galleries and productivity tools.`,
   bio: [
@@ -30,18 +30,15 @@ export const profile = {
 }
 
 export const socials = [
-  { name: 'GitHub', url: 'https://github.com/ravisorathiya', icon: 'github' },
+  { name: 'GitHub', url: 'https://github.com/chiragjethvaofficial', icon: 'github' },
   // { name: 'LinkedIn', url: 'https://www.linkedin.com/in/your-username', icon: 'linkedin' },
-  { name: 'X', url: 'https://x.com/ravi__sorathiya', icon: 'x' },
-  { name: 'Instagram', url: 'https://www.instagram.com/ll_ravi_sorathiya_ll/', icon: 'instagram' },
+  // { name: 'X', url: 'https://x.com/your-handle', icon: 'x' },
+  // { name: 'Instagram', url: 'https://www.instagram.com/your-handle/', icon: 'instagram' },
 ]
 
-// Crypto tips, shown in the Support dialog (Contact page + footer).
-export const support = {
-  label: 'Binance Pay',
-  payId: 'ravisorathiya',
-  qr: '/images/support/binance-pay.webp',
-}
+// Crypto tips, shown in the Support dialog (Contact page + footer). null hides it.
+// e.g. { label: 'Binance Pay', payId: 'your-id', qr: '/images/support/binance-pay.webp' }
+export const support = null
 
 export const skills = [
   { group: 'Languages', items: ['Kotlin', 'Java', 'JavaScript', 'SQL'] },

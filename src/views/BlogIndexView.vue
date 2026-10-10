@@ -18,7 +18,7 @@ const filtered = computed(() => (tag.value ? posts.filter((p) => p.tags.includes
 
 useSeo({
   title: 'Dev Notes — Android Development Articles',
-  description: 'Articles by Ravi Sorathiya on Android development: Kotlin, Jetpack Compose, telecom APIs, PDF editing and shipping apps to Google Play.',
+  description: 'Articles by Chirag Jethva on Android development: Kotlin, Jetpack Compose, telecom APIs, PDF editing and shipping apps to Google Play.',
   path: '/blog',
   jsonLd: [
     {

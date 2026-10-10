@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { profile, projects } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
-// A store-style phone search over the live apps (blog: find-ravi-sorathiya-android-developer).
+// A store-style phone search over the live apps (blog: find-chirag-jethva-android-developer).
 // Only real data: titles, icons, Play developer accounts, summaries and features from content/.
 // No ratings or download counts, because those would be made up.
 const live = projects.filter((p) => p.status === 'live')
@@ -55,7 +55,7 @@ const shown = computed(() => {
                 <input
                   v-model="query"
                   type="text"
-                  placeholder="Search Ravi's apps"
+                  placeholder="Search Chirag's apps"
                   aria-label="Search apps"
                   class="min-w-0 flex-1 bg-transparent text-xs text-slate-900 outline-none placeholder:text-slate-500 dark:text-white"
                 />
@@ -102,7 +102,7 @@ const shown = computed(() => {
                   <img :src="p.icon" alt="" width="48" height="48" loading="lazy" class="size-12 shrink-0 rounded-[0.9rem] shadow-sm" />
                   <span class="min-w-0 flex-1">
                     <span class="block truncate text-[13px] font-medium text-slate-900 dark:text-white">{{ p.title }}</span>
-                    <span class="block truncate text-[11px] text-slate-500 dark:text-slate-400">{{ p.developer || 'Ravi Sorathiya' }}</span>
+                    <span class="block truncate text-[11px] text-slate-500 dark:text-slate-400">{{ p.developer || 'Chirag Jethva' }}</span>
                     <span class="block truncate text-[11px] text-slate-400 dark:text-slate-500">{{ p.type }}</span>
                   </span>
                   <span class="rounded-full border border-slate-200 px-2.5 py-1 text-[10px] font-semibold text-brand-700 dark:border-[#3a3a40] dark:text-brand-300">View</span>

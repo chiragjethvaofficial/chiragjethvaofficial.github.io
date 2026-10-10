@@ -1,6 +1,6 @@
 ---
-title: "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose"
-description: "Explore Ravi Sorathiya's Android work with Kotlin and Jetpack Compose: Messages, Gallery Pro, a PDF editor, and technical notes behind the apps."
+title: "Chirag Jethva: Android developer, Kotlin & Jetpack Compose"
+description: "Explore Chirag Jethva's Android work with Kotlin and Jetpack Compose: Messages, Gallery Pro, a PDF editor, and technical notes behind the apps."
 date: 2026-10-06
 tags: ["Android", "Jetpack Compose", "Kotlin", "Portfolio"]
 relatedProjects: ["messages-compose", "gallery-pro", "pdf-reader"]
@@ -20,11 +20,11 @@ import ShortcutKeys from '/src/components/blog/ShortcutKeys.vue'
 
 You remember a name. Maybe an Android app. Maybe a conversation about Jetpack Compose. But you don't have the link.
 
-Here is a small guide to finding my work: **Ravi Sorathiya**, plus the thing you remember. Try `ravi sorathiya android`, `ravi sorathiya jetpack compose`, or `ravi sorathiya kotlin`.
+Here is a small guide to finding my work: **Chirag Jethva**, plus the thing you remember. Try `chirag jethva android`, `chirag jethva jetpack compose`, or `chirag jethva kotlin`.
 
 I'm an Android developer working with Kotlin and Jetpack Compose. This portfolio brings together my apps, the technical decisions behind them, and the notes I write along the way. Think of this page as a few different doors into that work.
 
-## Find Ravi Sorathiya by name, skill or Android project
+## Find Chirag Jethva by name, skill or Android project
 
 Pick a query below, or type your own: the preview switches to the part of my site that matches best, and every result is a real link. **Google it** opens your exact query in a new tab.
 
@@ -36,7 +36,7 @@ Already on the site? Then you don't need Google at all. The built-in search goes
 
 <ShortcutKeys />
 
-## “Ravi Sorathiya Android”: meet the developer
+## “Chirag Jethva Android”: meet the developer
 
 If you remember my name and what I build, start here. My [About page](/about) covers my skills and experience, while the [project collection](/projects) gives you the apps themselves.
 
@@ -46,7 +46,7 @@ Or browse them the way you'd browse a store: the phone below lists every app tha
 
 <PlaySearchPhone />
 
-## “Ravi Sorathiya Jetpack Compose”: Messages and Gallery Pro
+## “Chirag Jethva Jetpack Compose”: Messages and Gallery Pro
 
 Remember the toolkit? Try my name with **Jetpack Compose**.
 
@@ -58,13 +58,13 @@ The same goes for the rest of the stack. Pick a skill to see exactly which apps 
 
 <SkillMap />
 
-## “Ravi Sorathiya Kotlin”: native Android and a PDF editor
+## “Chirag Jethva Kotlin”: native Android and a PDF editor
 
 For a broader look at my Android work, try **Kotlin** alongside my name. Start with [my skills and experience](/about), then visit [Dev Notes](/blog) for a closer look at implementation choices.
 
 One example is [building a PDF editor with pdf.js inside an Android WebView](/blog/pdf-editor-pdfjs-webview-android). It follows a specific problem across the boundary between web rendering and native Android code.
 
-If that is the work you remember, `ravi sorathiya pdf editor` is another query to try.
+If that is the work you remember, `chirag jethva pdf editor` is another query to try.
 
 ## Found me? Here is where to go next
 
@@ -88,7 +88,7 @@ Sometimes you find me for someone else. Every page on this site has its own titl
 
 ## Keep my card
 
-You can also skip search entirely and bookmark [ravisorathiya.github.io](https://ravisorathiya.github.io/). Or keep the card: flip it for every way to reach me.
+You can also skip search entirely and bookmark [chiragjethvaofficial.github.io](https://chiragjethvaofficial.github.io/). Or keep the card: flip it for every way to reach me.
 
 <ContactCard />
 

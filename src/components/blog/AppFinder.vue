@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { getProject, statuses } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
-// "Find your app in two taps" (blog: find-ravi-sorathiya-android-developer).
+// "Find your app in two taps" (blog: find-chirag-jethva-android-developer).
 // Every answer maps to a real app; the pairing follows each app's own summary.
 const steps = [
   {

@@ -4,11 +4,11 @@ import { usePreferredReducedMotion } from '@vueuse/core'
 import { getPost, getProject, liveCount, profile, projects, socials } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
-// A Google-style results snapshot (blog: find-ravi-sorathiya-android-developer).
+// A Google-style results snapshot (blog: find-chirag-jethva-android-developer).
 // Every title, summary and icon comes from the real content files, so nothing drifts.
 const app = (slug) => {
   const p = getProject(slug)
-  return { kind: 'app', to: `/projects/${slug}`, title: `${p.title} — Android app by Ravi Sorathiya`, text: p.summary, icon: p.icon }
+  return { kind: 'app', to: `/projects/${slug}`, title: `${p.title} — Android app by Chirag Jethva`, text: p.summary, icon: p.icon }
 }
 const post = (slug) => {
   const p = getPost(slug)
@@ -18,10 +18,10 @@ const page = (to, title, text, links = []) => ({ kind: 'page', to, title, text, 
 
 const searches = [
   {
-    label: 'ravi sorathiya android',
-    words: ['android', 'developer', 'dev', 'apps', 'app', 'portfolio', 'ravi', 'sorathiya', 'hire'],
+    label: 'chirag jethva android',
+    words: ['android', 'developer', 'dev', 'apps', 'app', 'portfolio', 'chirag', 'jethva', 'hire'],
     results: [
-      page('/', 'Ravi Sorathiya — Android Developer | Kotlin & Jetpack Compose Apps', profile.tagline, [
+      page('/', 'Chirag Jethva — Android Developer | Kotlin & Jetpack Compose Apps', profile.tagline, [
         { to: '/projects', label: 'Apps', text: `${projects.length} Android apps` },
         { to: '/about', label: 'About', text: 'Skills & experience' },
         { to: '/blog', label: 'Dev Notes', text: 'Technical articles' },
@@ -32,21 +32,21 @@ const searches = [
     ],
   },
   {
-    label: 'ravi sorathiya jetpack compose',
+    label: 'chirag jethva jetpack compose',
     words: ['compose', 'jetpack', 'ui', 'material', 'sms', 'messages', 'gallery', 'photo'],
-    results: [app('messages-compose'), app('gallery-pro'), page('/projects', 'Projects — Ravi Sorathiya', 'Every app, grouped by status, with a case study for each.')],
+    results: [app('messages-compose'), app('gallery-pro'), page('/projects', 'Projects — Chirag Jethva', 'Every app, grouped by status, with a case study for each.')],
   },
   {
-    label: 'ravi sorathiya kotlin',
+    label: 'chirag jethva kotlin',
     words: ['kotlin', 'java', 'coroutines', 'flow', 'hilt', 'architecture', 'skills', 'dialer', 'call', 'phone'],
     results: [
-      page('/about', 'About Ravi Sorathiya — Kotlin & Android Developer', profile.shortBio),
+      page('/about', 'About Chirag Jethva — Kotlin & Android Developer', profile.shortBio),
       post('android-dialer-incallservice-callscreeningservice'),
       app('phone-caller-contacts'),
     ],
   },
   {
-    label: 'ravi sorathiya pdf editor',
+    label: 'chirag jethva pdf editor',
     words: ['pdf', 'editor', 'webview', 'pdfjs', 'pdf.js', 'annotate', 'sign', 'scanner', 'document'],
     results: [post('pdf-editor-pdfjs-webview-android'), app('pdf-reader')],
   },
@@ -70,7 +70,7 @@ const results = computed(() => searches[selected.value].results.filter((r) => !t
 // 'YYYY-MM-DD' → 'Oct 2, 2026' without timezone or locale drift between SSR and the browser.
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const shortDate = (d) => `${MONTHS[+d.slice(5, 7) - 1]} ${+d.slice(8, 10)}, ${d.slice(0, 4)}`
-const crumb = (to) => 'https://ravisorathiya.github.io' + (to === '/' ? '' : to.replaceAll('/', ' › '))
+const crumb = (to) => 'https://chiragjethvaofficial.github.io' + (to === '/' ? '' : to.replaceAll('/', ' › '))
 const googleUrl = computed(() => `https://www.google.com/search?q=${encodeURIComponent(query.value.trim() || searches[selected.value].label)}`)
 
 function load() {
@@ -155,7 +155,7 @@ onBeforeUnmount(() => {
             :value="query"
             type="text"
             aria-label="Try your own search"
-            placeholder="ravi sorathiya …"
+            placeholder="chirag jethva …"
             class="min-w-0 flex-1 bg-transparent text-sm text-slate-900 outline-none dark:text-[#e8eaed]"
             @input="onInput"
           />
@@ -208,7 +208,7 @@ onBeforeUnmount(() => {
                 <img v-else-if="profile.avatar" :src="profile.avatar" alt="" width="28" height="28" class="size-7 shrink-0 rounded-full object-cover" />
                 <span v-else class="grid size-7 shrink-0 place-items-center rounded-full bg-brand-gradient text-[10px] font-bold text-white">RS</span>
                 <span class="min-w-0 leading-tight">
-                  <span class="block text-sm text-slate-800 dark:text-[#dadce0]">Ravi Sorathiya</span>
+                  <span class="block text-sm text-slate-800 dark:text-[#dadce0]">Chirag Jethva</span>
                   <span class="block truncate text-xs text-slate-500 dark:text-[#9aa0a6]">{{ crumb(r.to) }}</span>
                 </span>
               </span>

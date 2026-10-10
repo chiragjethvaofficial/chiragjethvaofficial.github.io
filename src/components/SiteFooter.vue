@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { profile, socials } from '../data/portfolio'
+import { profile, socials, support } from '../data/portfolio'
 import AppIcon from './AppIcon.vue'
 import SupportDialog from './SupportDialog.vue'
 
@@ -14,6 +14,7 @@ const supportOpen = ref(false)
       <p class="text-sm text-slate-500">© {{ year }} {{ profile.name }}. Built with Vue &amp; Tailwind.</p>
       <div class="flex items-center gap-2">
         <button
+          v-if="support"
           class="mr-1 inline-flex items-center gap-1.5 rounded-full border border-slate-200 px-3 py-1.5 text-sm text-slate-500 transition hover:border-amber-400 hover:text-amber-500 dark:border-slate-800"
           @click="supportOpen = true"
         >
@@ -33,6 +34,6 @@ const supportOpen = ref(false)
         </a>
       </div>
     </div>
-    <SupportDialog v-model="supportOpen" />
+    <SupportDialog v-if="support" v-model="supportOpen" />
   </footer>
 </template>

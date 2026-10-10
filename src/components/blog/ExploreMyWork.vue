@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { getPost, getProject } from '../../content'
 import AppIcon from '../AppIcon.vue'
 
-// Interest → app → article (blog: find-ravi-sorathiya-android-developer).
+// Interest → app → article (blog: find-chirag-jethva-android-developer).
 // App and article details are read from the content files.
 const paths = [
   {

@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { getPost, getProject, profile, SITE_URL, socials, statuses } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
-// How a link to the site unfurls in X, WhatsApp and Slack (blog: find-ravi-sorathiya-android-developer).
+// How a link to the site unfurls in X, WhatsApp and Slack (blog: find-chirag-jethva-android-developer).
 // Title, description and image follow the same rules as useSeo() and scripts/og.mjs,
 // so each preview matches the page's real Open Graph tags.
 const SITE_NAME = `${profile.name} — Portfolio`
@@ -49,7 +49,8 @@ const platform = ref('x')
 const page = computed(() => pages[pageIndex.value])
 const url = computed(() => SITE_URL + page.value.path)
 const image = computed(() => SITE_URL + page.value.image)
-const xHandle = '@' + new URL(socials.find((s) => s.icon === 'x').url).pathname.split('/').filter(Boolean)[0]
+const xUrl = socials.find((s) => s.icon === 'x')?.url
+const xHandle = xUrl ? '@' + new URL(xUrl).pathname.split('/').filter(Boolean)[0] : DOMAIN
 
 const copied = ref(false)
 async function copy() {

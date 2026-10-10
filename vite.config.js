@@ -81,9 +81,9 @@ export default defineConfig(({ command }) => {
         injectRegister: null, // registered from src/main.js on the client only
         includeAssets: ['favicon.ico', 'favicon-96.png', 'apple-touch-icon.png'],
         manifest: {
-          name: 'Ravi Sorathiya — Android Developer',
-          short_name: 'Ravi.dev',
-          description: 'Android apps by Ravi Sorathiya: Kotlin & Jetpack Compose, live on Google Play.',
+          name: 'Chirag Jethva — Android Developer',
+          short_name: 'Chirag.dev',
+          description: 'Android apps by Chirag Jethva: Kotlin & Jetpack Compose, live on Google Play.',
           theme_color: '#059669',
           background_color: '#020617',
           display: 'standalone',
@@ -130,7 +130,7 @@ export default defineConfig(({ command }) => {
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
         )
         console.log(`sitemap.xml: ${pages.length} URLs`)
-        const feedCount = writeFeeds(posts, { siteUrl: SITE_URL, author: 'Ravi Sorathiya' })
+        const feedCount = writeFeeds(posts, { siteUrl: SITE_URL, author: 'Chirag Jethva' })
         if (feedCount) console.log(`blog/rss.xml + atom.xml: ${feedCount} posts`)
         console.log(`og: ${await generateOgImages({ projects, posts })} share images`)
       },

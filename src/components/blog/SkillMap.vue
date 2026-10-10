@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import { projects } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
-// Skill ⇄ app map (blog: find-ravi-sorathiya-android-developer).
+// Skill ⇄ app map (blog: find-chirag-jethva-android-developer).
 // Built from each project's real `tags`: pick a skill to light up the apps that use it,
 // or hover an app to light up its skills.
 const counts = {}

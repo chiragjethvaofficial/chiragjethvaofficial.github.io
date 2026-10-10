@@ -1,6 +1,6 @@
 # Blog Registry: Dev Notes
 
-> **Source of truth for the articles on https://ravisorathiya.github.io/blog.**
+> **Source of truth for the articles on https://chiragjethvaofficial.github.io/blog.**
 > Each article is one Markdown file, `content/blog/<slug>.md`. Every file must have a row in **Registry** with the same
 > title, status and date, and every row must have a file. `npm run check` (also run in CI before every deploy) fails if
 > they drift apart.
@@ -30,7 +30,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 <!-- posts:start (parsed by scripts/check-content.mjs; keep the table format) -->
 | Slug | Title | Status | Date | Related apps |
 | --- | --- | --- | --- | --- |
-| find-ravi-sorathiya-android-developer | Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose | published | 2026-10-06 | messages-compose, gallery-pro, pdf-reader |
+| find-chirag-jethva-android-developer | Chirag Jethva: Android developer, Kotlin & Jetpack Compose | published | 2026-10-06 | messages-compose, gallery-pro, pdf-reader |
 | how-i-use-ai-android-development-workflow | How I shaped AI to fit my Android development workflow | published | 2026-10-05 | pdf-reader, phone-call |
 | pdf-editor-pdfjs-webview-android | Building a PDF editor on Android with pdf.js inside a WebView | published | 2026-10-02 | pdf-reader |
 | android-dialer-incallservice-callscreeningservice | Writing a replacement phone dialer: InCallService and CallScreeningService | published | 2026-10-01 | phone-call, contacts-dialer, phone-caller-contacts |
@@ -45,6 +45,7 @@ Claude researches the real source code, writes the article as a draft, adds it t
 
 Newest first. One line per change.
 
+- **2026-10-10:** Site renamed to Chirag Jethva: `find-ravi-sorathiya-android-developer` → `find-chirag-jethva-android-developer` (new site, never published under the old slug here).
 - **2026-10-06:** Published "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" (owner approved).
 - **2026-10-06:** Drafted "Ravi Sorathiya: Android developer, Kotlin & Jetpack Compose" with 2 interactive components: `FindMeSearch` (a Google-style results mockup with a typing query, free-text matching, All/Apps/Articles tabs and a knowledge panel) and `ExploreMyWork` (interest → app → article explorer). Later the same day it gained `PlaySearchPhone`, `SharePreview`, `ContactCard`, `SkillMap`, `AppFinder` and `ShortcutKeys`, all driven by real `content/` data.
 - **2026-10-05:** Published "How I shaped AI to fit my Android development workflow" (owner approved).

@@ -18,7 +18,7 @@ import { SITE_URL } from '../data/portfolio'
 
 useSeo({
   description:
-    `Ravi Sorathiya is an Android developer building Kotlin & Jetpack Compose apps — ${liveCount} apps live on Google Play including phone dialers, SMS messengers, galleries, a video maker and a PDF editor.`,
+    `Chirag Jethva is an Android developer building Kotlin & Jetpack Compose apps — ${liveCount} apps live on Google Play including phone dialers, SMS messengers, galleries, a video maker and a PDF editor.`,
   jsonLd: [
     personSchema,
     {

@@ -1,13 +1,13 @@
-# Site Plan: ravisorathiya.github.io
+# Site Plan: chiragjethvaofficial.github.io
 
-> The living plan for Ravi Sorathiya's portfolio. AI agents and humans should read this before changing the site, and update it when a decision changes.
-> Live site: **https://ravisorathiya.github.io/** · Repo: https://github.com/ravisorathiya/ravisorathiya.github.io · Agent rules: [`CLAUDE.md`](../CLAUDE.md)
+> The living plan for Chirag Jethva's portfolio. AI agents and humans should read this before changing the site, and update it when a decision changes.
+> Live site: **https://chiragjethvaofficial.github.io/** · Repo: https://github.com/chiragjethvaofficial/chiragjethvaofficial.github.io · Agent rules: [`CLAUDE.md`](../CLAUDE.md)
 
 ---
 
 ## 1. Purpose
 
-Showcase Ravi Sorathiya as an **Android developer (Kotlin, Jetpack Compose)**, centred on the Google Play apps he has shipped, plus technical writing that shows how they're built.
+Showcase Chirag Jethva as an **Android developer (Kotlin, Jetpack Compose)**, centred on the Google Play apps he has shipped, plus technical writing that shows how they're built.
 
 **Primary audiences:** recruiters, clients, other developers.
 
@@ -15,7 +15,7 @@ Showcase Ravi Sorathiya as an **Android developer (Kotlin, Jetpack Compose)**, c
 1. Prove real shipped work (Google Play apps, screenshots, links).
 2. Show technical depth (case studies, Dev Notes articles).
 3. Make contact easy.
-4. Rank for "Ravi Sorathiya" and for long-tail Android topics, via articles.
+4. Rank for "Chirag Jethva" and for long-tail Android topics, via articles.
 
 ---
 
@@ -173,10 +173,12 @@ Profile, socials, skills, experience and education are in [`src/data/portfolio.j
 - [x] Company & dates in `experience`
 - [x] Education (MCA, BCA) + interactive career journey on /about
 - [ ] University names in `education`
-- [ ] LinkedIn / other profiles in `socials`
+- [ ] LinkedIn / X / Instagram in `socials`
+- [ ] Profile photo (`public/images/avatar.webp` + `profile.avatar`, then `npm run icons` for favicons)
+- [ ] Optional: Support dialog (`support` in portfolio.js + QR image)
 - [ ] Optional: `public/resume.pdf` + `resumeUrl`
 - [ ] Google Search Console: verification meta tag, then submit `sitemap.xml`
-- [ ] Set the repo "Website" field to https://ravisorathiya.github.io/
+- [ ] Set the repo "Website" field to https://chiragjethvaofficial.github.io/
 - [ ] Ideas: more articles (`/new-post`), Play ratings (only from real data)
 
 ---
@@ -187,11 +189,12 @@ Newest first. Record decisions that a future agent might otherwise undo.
 
 | Date | Decision |
 | --- | --- |
+| 2026-10-10 | Site renamed to **Chirag Jethva**: repo `chiragjethvaofficial/chiragjethvaofficial.github.io`, live at https://chiragjethvaofficial.github.io/ (the `chiragjethva` GitHub username belongs to someone else, so chiragjethva.github.io is not available). Email is chiragjethvaofficial@gmail.com and socials are GitHub only until the owner adds more. The previous owner's photo, X/Instagram, Binance Pay QR and Search Console file were removed; `support = null` hides the Support dialog and favicons are "CJ" initials until a photo is added. |
 | 2026-10-08 | Favicon is the profile photo (owner request, for Google results and browser tabs). `npm run icons` builds `favicon.ico` (16/32/48) and `favicon-96.png` as round crops of `public/images/avatar.webp`, plus square `apple-touch-icon` / maskable and round PWA icons. The old "RS" `favicon.svg` was removed. |
 | 2026-10-08 | Home page gets a "How I build" code showcase after Selected work: tabs for 10 modern-Android techniques (Compose, Flow, Hilt, Clean Architecture, Room, WorkManager, Media3, CameraX, Baseline Profiles, Gradle KTS). The layout follows Laravel's home page (owner request): a vertical list on desktop whose active item expands to show its description, and an underlined tab strip on phones. There are no pill chips. Each tab is a Markdown snippet in `content/snippets/` with tappable line notes; the Compose tab has a clickable preview. Samples are simplified and inspired by the apps, never real source. |
 | 2026-10-08 | On mobile (< md) the hamburger menu is gone: page links live in a floating iOS-style "liquid glass" bottom tab bar (`BottomTabBar.vue`, icons from `nav[].icon`) whose glass lens springs to the active tab and can be dragged across tabs to pick a page (iOS-style), and which compacts while scrolling down. The top bar keeps logo, search and theme toggle. |
 | 2026-10-06 | Search (`src/utils/search.js`) also indexes every `##` section of posts and case studies (results deep-link to `#anchor`, using the same slug rule as markdown-it-anchor) and the real About/Contact/Home text. It also applies domain synonyms (exact-match only, weighted 0.35) and light plural stemming. The palette shows a "Sections" group with highlighted matches. |
-| 2026-10-06 | SEO goal is to rank first for name searches ("ravi sorathiya" + android/kotlin/compose). WebSite schema `name` is the plain name (Google site name), and Person schema carries `alternateName` (social handles) and `homeLocation`. Don't rename these back to "… — Portfolio". |
+| 2026-10-06 | SEO goal is to rank first for name searches ("chirag jethva" + android/kotlin/compose). WebSite schema `name` is the plain name (Google site name), and Person schema carries `alternateName` (social handles) and `homeLocation`. Don't rename these back to "… — Portfolio". |
 | 2026-10-06 | Socials are GitHub, X and Instagram. Crypto tips go through a Binance Pay **Support** dialog (`SupportDialog.vue`) opened from the Contact page and the footer, with no dedicated page. Its QR is cropped to `public/images/support/binance-pay.webp`. |
 | 2026-10-05 | Site moved to the `ravisorathiya` GitHub account: repo `ravisorathiya/ravisorathiya.github.io`, live at https://ravisorathiya.github.io/ (old ravioriginfo.github.io URL retired). |
 | 2026-10-05 | Site-wide animated galaxy background (`StarField.vue`, canvas): parallax stars, cursor constellations, shooting stars; paused when hidden, static under reduced motion. |

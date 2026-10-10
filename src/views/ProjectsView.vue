@@ -11,7 +11,7 @@ import { search } from '../utils/search'
 
 useSeo({
   title: 'Android Apps & Projects',
-  description: `${projects.length} Android apps by Ravi Sorathiya: phone dialers, SMS messengers, photo galleries, calendar, alarm clock and a PDF editor — ${projects.filter((p) => p.status === 'live').length} live on Google Play.`,
+  description: `${projects.length} Android apps by Chirag Jethva: phone dialers, SMS messengers, photo galleries, calendar, alarm clock and a PDF editor — ${projects.filter((p) => p.status === 'live').length} live on Google Play.`,
   path: '/projects',
   jsonLd: [
     {
