@@ -27,6 +27,7 @@ _(empty)_
 <!-- registry:start (parsed by scripts/check-projects.mjs; keep the table format) -->
 | Slug | Title | Status | Type | Featured | Play package | Source folder |
 | --- | --- | --- | --- | --- | --- | --- |
+| vidix-ai-video-generator | Vidix - AI Photo Video Generator | live | Gallery & Media | | com.vidix.aivideogenerator.aiphotogenerator | — (client project, published on Play) |
 | pdf-reader | PDF Reader & Editor | in-progress | Productivity | yes | — | `development/ongoing/PDFReaderOrigin` |
 | phone-call | Phone Call | live | Dialer & Contacts | yes | com.phonecall.phone.contact.callerdialer | `producation/PhoneCall_ZombiApp/1.7/PhoneCall_ZombiApp` |
 | messages-compose | Messages | live | Messaging | yes | com.message.textmessenger.smsapp | `producation/Message/1.1/Messages_tiana_15_05_2026` |
@@ -43,7 +44,7 @@ _(empty)_
 | voice-recorder | Voice Recorder | completed | Productivity | | — | `development/completed/VoiceRecorder` |
 <!-- registry:end -->
 
-**Totals:** 14 apps: 12 live · 1 in progress · 1 completed.
+**Totals:** 15 apps: 13 live · 1 in progress · 1 completed.
 
 ---
 
@@ -66,6 +67,7 @@ Apps that were deliberately removed or skipped. Before adding a new project, che
 
 Newest first. One line per change to the project list.
 
+- **2026-10-11:** Added `vidix-ai-video-generator` (Vidix - AI Photo Video Generator, live). Client-based AI photo and video generator app.
 - **2026-10-02:** Added `noys-music-video-maker` (Noys - Music Video Maker, live). It's an earlier app with no local source, so its content comes from the owner's Google Play listing.
 - **2026-10-02:** Moved all apps to Markdown files in `content/projects/`, with case studies and Google Play screenshots.
 - **2026-10-02:** Removed `all-message-social`, `ravi-message`, `ravi-phone-call`, `ravi-gallery` (unpublished).

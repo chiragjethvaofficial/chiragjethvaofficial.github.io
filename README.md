@@ -6,7 +6,7 @@
 
 # Chirag Jethva — Portfolio
 
-**Android developer · Kotlin & Jetpack Compose · 12 apps live on Google Play**
+**Android developer · Kotlin & Jetpack Compose · 13 apps live on Google Play**
 
 ### 🌐 [chiragjethvaofficial.github.io](https://chiragjethvaofficial.github.io/)
 
@@ -83,7 +83,7 @@ publish.cmd         → double-click to publish
 | <img src="public/images/apps/messages-compose.webp" width="48" /> | [**Messages**](https://chiragjethvaofficial.github.io/projects/messages-compose) | Default SMS & MMS app built in Jetpack Compose | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.message.textmessenger.smsapp) |
 | <img src="public/images/apps/gallery-pro.webp" width="48" /> | [**Gallery - Photo Gallery**](https://chiragjethvaofficial.github.io/projects/gallery-pro) | Compose gallery with timeline, editor & photo picker | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.gallery.picturegalleryapp.gallerypro) |
 
-➡️ **[See all 14 apps →](https://chiragjethvaofficial.github.io/projects)**
+➡️ **[See all 15 apps →](https://chiragjethvaofficial.github.io/projects)**
 
 ---
 
