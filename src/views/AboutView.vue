@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { education, experience, liveCount, profile, projects, skills } from '../data/portfolio'
+import { education, experience, liveCount, profile, projects, skills, socials } from '../data/portfolio'
 import AppIcon from '../components/AppIcon.vue'
 import SectionHeading from '../components/SectionHeading.vue'
 import StatusBadge from '../components/StatusBadge.vue'
@@ -9,7 +9,7 @@ import { personSchema, useSeo } from '../composables/seo'
 
 useSeo({
   title: 'About — Android Developer (Kotlin, Jetpack Compose)',
-  description: `About ${profile.name}: Android developer skilled in Kotlin, Jetpack Compose, Hilt, Room, CameraX and Firebase, with ${liveCount} apps shipped to Google Play.`,
+  description: `About ${profile.name}: Android developer in ${profile.location} skilled in Kotlin, Java, Jetpack Compose, MVVM, REST APIs and Firebase, with ${liveCount} apps live on Google Play.`,
   path: '/about',
   type: 'profile',
   jsonLd: [{ '@type': 'ProfilePage', mainEntity: personSchema }],
@@ -17,7 +17,9 @@ useSeo({
 
 // Tech explorer: pick a skill to see which apps use it.
 const usage = (skill) => projects.filter((p) => p.tags.includes(skill))
-const selected = ref('Jetpack Compose')
+const selected = ref('Kotlin')
+const linkedin = socials.find((s) => s.icon === 'linkedin')
+const firstYear = Math.min(...experience.map((e) => Number(e.start.slice(0, 4))))
 const selectedProjects = computed(() => usage(selected.value))
 </script>
 
@@ -31,6 +33,13 @@ const selectedProjects = computed(() => usage(selected.value))
         </div>
       </div>
       <aside v-reveal="150" class="card h-fit p-6">
+        <div v-if="profile.avatar" class="mb-6 flex items-center gap-4">
+          <img :src="profile.avatar" :alt="profile.name" width="80" height="80" class="size-20 rounded-2xl object-cover shadow-lg ring-2 ring-brand-500/30" />
+          <div>
+            <p class="text-lg font-semibold text-slate-900 dark:text-white">{{ profile.name }}</p>
+            <p class="text-sm text-slate-500">{{ profile.role }}</p>
+          </div>
+        </div>
         <dl class="space-y-4 text-sm">
           <div>
             <dt class="text-slate-500">Role</dt>
@@ -46,6 +55,18 @@ const selectedProjects = computed(() => usage(selected.value))
             <dt class="text-slate-500">Email</dt>
             <dd>
               <a :href="`mailto:${profile.email}`" class="font-medium text-brand-600 hover:underline dark:text-brand-400">{{ profile.email }}</a>
+            </dd>
+          </div>
+          <div v-if="profile.languages?.length">
+            <dt class="text-slate-500">Languages</dt>
+            <dd class="font-medium text-slate-900 dark:text-white">{{ profile.languages.join(' · ') }}</dd>
+          </div>
+          <div v-if="linkedin">
+            <dt class="text-slate-500">LinkedIn</dt>
+            <dd>
+              <a :href="linkedin.url" target="_blank" rel="noopener" class="inline-flex items-center gap-1 font-medium text-brand-600 hover:underline dark:text-brand-400">
+                <AppIcon name="linkedin" class="size-4" /> {{ linkedin.url.replace(/^https:\/\/(www\.)?/, '') }}
+              </a>
             </dd>
           </div>
         </dl>
@@ -113,7 +134,7 @@ const selectedProjects = computed(() => usage(selected.value))
         v-reveal
         eyebrow="// journey"
         title="Career journey"
-        subtitle="From a BCA in 2016 to shipping Android apps on Google Play. Hover or tap any bar to jump to that chapter."
+        :subtitle="`From my first Android role in ${firstYear} to shipping apps on Google Play. Hover or tap any bar to jump to that chapter.`"
       />
       <CareerJourney :experience="experience" :education="education" :live-count="liveCount" />
     </section>

@@ -8,19 +8,20 @@ icon: /images/apps/vidix-ai-video-generator.webp
 playPackage: com.vidix.aivideogenerator.aiphotogenerator
 developer: "Supercool Labs"
 developerUrl: https://play.google.com/store/apps/developer?id=Supercool+Labs
-summary: "Client-based AI photo and video generator transforming photos and text into animated videos and 3D avatars."
+summary: "Client app I built end to end: AI image and video generation, a photo editor and photo-to-video templates."
 features:
-  - "AI video generation from static photos, portraits and custom text prompts"
-  - "3D AI avatar and figure creator with trending poses and art styles"
-  - "Cartoon, anime and artistic photo-to-video filters"
-  - "Motion and facial animation effects for portrait photos"
-  - "HD video export and one-tap social sharing"
+  - "AI image-to-image generation"
+  - "AI image-to-video generation"
+  - "Photo editor for image customisation"
+  - "Template-based photo-to-video creation"
+  - "Image compression to optimise file sizes"
+  - "HD export and one-tap sharing"
 highlights:
-  - "Client-based Android application built to client specification"
-  - "AI image and video processing pipeline integration"
-  - "Dynamic template catalogue and style filter delivery"
-  - "High-performance video rendering and HD export engine"
-tags: ["Android", "Client Project", "AI Video", "AI Photo", "Media Generation", "Kotlin"]
+  - "Full-cycle development: built the complete app solo, from implementation to delivery"
+  - "REST API integration connecting app features to AI generation services"
+  - "Image processing and compression on the device"
+  - "Focus on performance, stability and a smooth user experience"
+tags: ["Kotlin", "Java", "Android SDK", "REST APIs", "Image Processing", "Video Generation", "Client Project"]
 screenshots:
   - src: /images/apps/vidix-ai-video-generator/1.webp
     alt: "Vidix - AI Photo Video Generator screenshot 1"
@@ -50,16 +51,20 @@ screenshots:
 
 ## Overview
 
-**Vidix** is a client-based AI photo and video generator application developed for Android. It enables users to transform photos, portraits, and text prompts into animated AI videos, 3D avatars, and stylized artistic clips.
+**Vidix** is an AI photo and video generator for Android. Users transform photos into new images and AI-generated videos, edit pictures, and turn photos into videos with ready-made templates.
+
+## My role
+
+A client project that I developed independently, handling the complete Android development lifecycle from implementation to delivery. It is published on Google Play under the client's account, Supercool Labs.
 
 ## What it does
 
-- **AI Video Generation:** Animates static photos and text prompts into motion-rich video clips and cinematic scenes.
-- **3D Figure & Avatar Creator:** Generates 3D avatars and digital characters using trending poses, outfits, and art styles.
-- **Photo-to-Video Transformation:** Applies motion, facial animation, and story-style effects to portrait photos.
-- **Filters & Styles:** Provides a rich collection of cartoon, anime, and artistic filters.
-- **HD Export:** Renders and exports high-definition video clips ready for social sharing.
+- **AI image-to-image:** transforms and generates images through REST APIs connected to AI generation services.
+- **AI image-to-video:** turns still images into AI-generated videos.
+- **Photo editor:** customise images before or after generation.
+- **Photo-to-video templates:** create videos from photos using templates.
+- **Image compression:** reduces image file sizes for faster uploads and sharing.
 
-## Notes
+## How it's built
 
-Client-based project built to client requirements and shipped to Google Play under Supercool Labs.
+Kotlin and Java on the Android SDK, with REST API integration for the AI services, plus on-device image processing and compression. Work focused on performance, stability and a smooth experience.

@@ -11,21 +11,25 @@ developerUrl: https://play.google.com/store/apps/developer?id=SKYWALK+INFOTECH
 summary: "A fashion marketplace to buy, sell and rent clothes, from sarees and lehengas to party wear."
 features:
   - "Buy dresses, sarees, lehengas, gowns and more"
-  - "Sell unused clothes by listing them in a few steps"
+  - "Sell or rent out clothes by listing them with photos and details"
   - "Rent outfits for weddings, parties and special occasions"
-  - "Quick listings with photos and item details"
-  - "Search to find fashion items fast"
-  - "Direct buyer–seller contact to finalise a deal"
+  - "Filter-based listings to find relevant items fast"
+  - "Chat and contact between buyers and sellers"
+  - "User profiles and reward-based gift vouchers"
 highlights:
-  - "Buy, sell and rent flows in a single marketplace app"
-  - "Listing creation with photo upload"
-  - "Item search across listings"
-  - "Direct contact between buyers and sellers"
+  - "Full-cycle development: built the complete app end to end"
+  - "Separate user and admin modules for running the marketplace"
+  - "Dynamic listings and filters backed by REST APIs"
+  - "In-app chat between marketplace users"
+  - "Reward claiming with gift vouchers"
 tags:
-  - "Android"
+  - "Kotlin"
+  - "Java"
+  - "Android SDK"
+  - "REST APIs"
   - "Marketplace"
-  - "Image Upload"
-  - "Search"
+  - "Chat"
+  - "Admin Module"
 screenshots:
   - src: /images/apps/zenzi-clothes-buy-rent/1.webp
     alt: "ZenZi - Clothes Buy or Rent screenshot 1"
@@ -57,9 +61,18 @@ screenshots:
 
 **ZenZi** is a fashion marketplace where people buy, sell and rent clothes. Instead of buying an expensive outfit for one occasion, users can rent one, or pass on pre-loved clothes they no longer wear.
 
+## My role
+
+A product-based project for SkyWalk Infotech (July 2023 – February 2025): I developed the complete Android app, implementing the core marketplace features to the product requirements.
+
 ## What it does
 
 - **Buy:** browse dresses, sarees, lehengas, gowns and other fashion items.
-- **Sell:** list unused clothes with photos and details, and connect with interested buyers.
+- **Sell and rent out:** list clothes with photos and details, for sale or for rent.
 - **Rent:** find outfits for weddings, parties and special events.
-- **Search and contact:** find items quickly and talk to the seller directly to close the deal.
+- **Filters and chat:** find relevant items quickly and talk to the seller in the app to close the deal.
+- **Profiles and rewards:** manage a profile and claim gift vouchers through the rewards feature.
+
+## How it's built
+
+Kotlin and Java on the Android SDK, with REST APIs for backend communication. Separate user and admin modules support day-to-day marketplace operations, and the app focuses on being smooth, reliable and easy to use.

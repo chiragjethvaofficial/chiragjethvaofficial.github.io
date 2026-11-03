@@ -2,7 +2,7 @@
 // scripts/check-content.mjs. Field-by-field guide: docs/CONTENT.md.
 import { z } from 'zod'
 
-export const PROJECT_TYPES = ['Messaging', 'Dialer & Contacts', 'Gallery & Media', 'Productivity', 'Lifestyle', 'Social']
+export const PROJECT_TYPES = ['Messaging', 'Dialer & Contacts', 'Gallery & Media', 'Productivity', 'Lifestyle', 'Travel & Transport', 'Social']
 export const PROJECT_STATUSES = ['live', 'completed', 'in-progress']
 
 const imagePath = z.string().regex(/^\/images\/.+\.(png|webp|jpg|jpeg|svg)$/, 'must be a /images/... path')

@@ -15,21 +15,22 @@ const liveCount = projects.filter((p) => p.status === 'live').length
 export const profile = {
   name: 'Chirag Jethva',
   role: 'Android Developer',
-  roles: ['Android Developer', 'Kotlin & Jetpack Compose', 'Shipping apps to Google Play', 'Clean Architecture fan'],
+  roles: ['Android Developer', 'Kotlin & Java', 'Jetpack Compose & MVVM', 'Product, client & government apps'],
   tagline:
-    'I build and ship Android apps people use every day — dialers, contacts, a photo vault, an AI video generator, a fashion marketplace and everyday tools.',
-  location: 'India',
+    'I build and ship Android apps people use every day — government transport apps, an AI video generator, a fashion marketplace, dialers and everyday tools.',
+  location: 'Surat, Gujarat, India',
   email: 'chiragjethvaofficial@gmail.com',
   resumeUrl: withBase(''), // e.g. withBase('/resume.pdf') after adding public/resume.pdf
   availableForWork: true,
-  avatar: withBase(''), // e.g. withBase('/images/avatar.webp') after adding the photo; '' shows initials
+  avatar: withBase('/images/avatar.webp'), // '' shows initials instead
   shortBio:
-    `Android developer working in Kotlin and Jetpack Compose. I have shipped ${liveCount} apps to Google Play — from default dialers that take over core phone roles, to an AI video generator, a fashion marketplace, a photo vault and everyday tools.`,
+    `Android developer since 2021, working in Kotlin and Java with Jetpack Compose and MVVM. I have built apps for government services, clients and products — ${liveCount} of them live on Google Play.`,
   bio: [
-    'I build native Android apps end to end: architecture, UI, background work, monetization and release. Most of my work lives on Google Play, where apps have to be fast, stable and pass strict policy review.',
-    'A lot of it sits close to the platform — replacement phone dialers built on InCallService and CallScreeningService, default SMS/MMS messengers, exact-alarm scheduling, home-screen widgets, and media apps that handle Android 14 partial photo access.',
-    'Right now I am building a full PDF reader and editor: pdf.js running inside a WebView bridged to Kotlin, with annotation, signatures, in-place text editing, form filling, password lock and a camera document scanner, split across ~15 Clean Architecture modules.',
+    'I build native Android apps end to end in Kotlin and Java: MVVM architecture, UI with Jetpack Compose and XML, REST API integration, Firebase, Google Play Billing, Room/SQLite, and release and maintenance on Google Play.',
+    'My work spans three kinds of projects. Government apps for public transport: live bus tracking for Ahmedabad’s AMTS, and fare collection, ticketing machines (ETM) and Pay & Park for Rajkot Rajpath. Client projects such as the Vidix AI photo and video generator, which I built on my own. And products like the ZenZi clothing marketplace, built end to end with user and admin modules.',
+    'I care about clean, maintainable code, stable releases and turning business requirements into practical Android solutions. I have also led a small team as a senior developer, and I’m open to Android roles, freelance projects and client collaborations.',
   ],
+  languages: ['English', 'Gujarati', 'Hindi'],
 }
 
 // Shown wherever there is no avatar photo ('CJ').
@@ -37,20 +38,20 @@ profile.initials = profile.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 
 
 export const socials = [
   { name: 'GitHub', url: 'https://github.com/chiragjethvaofficial', icon: 'github' },
-  // { name: 'LinkedIn', url: 'https://www.linkedin.com/in/your-username', icon: 'linkedin' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/chiragjethva0911', icon: 'linkedin' },
   // { name: 'X', url: 'https://x.com/your-handle', icon: 'x' },
   // { name: 'Instagram', url: 'https://www.instagram.com/your-handle/', icon: 'instagram' },
 ]
 
 export const skills = [
-  { group: 'Languages', items: ['Kotlin', 'Java', 'JavaScript', 'SQL'] },
-  { group: 'Android UI', items: ['Jetpack Compose', 'Material 3', 'XML Views', 'ViewBinding', 'Navigation', 'Lottie'] },
-  { group: 'Architecture & DI', items: ['Clean Architecture', 'MVVM', 'Multi-module', 'Hilt', 'Coroutines', 'Flow', 'RxJava'] },
-  { group: 'Data & Background', items: ['Room', 'DataStore', 'Realm', 'WorkManager', 'Retrofit', 'Foreground Services'] },
-  { group: 'Media & Camera', items: ['Media3 ExoPlayer', 'Coil', 'Glide', 'CameraX', 'OpenCV', 'PDFBox', 'pdf.js'] },
-  { group: 'Platform & Telephony', items: ['InCallService', 'CallScreeningService', 'Default SMS role', 'App Widgets', 'Exact Alarms', 'Biometric'] },
-  { group: 'Firebase & Monetization', items: ['Firebase', 'Remote Config', 'Crashlytics', 'AdMob', 'UMP Consent', 'Play Billing'] },
-  { group: 'Tooling & Release', items: ['Gradle KTS', 'Baseline Profiles', 'Macrobenchmark', 'In-app Updates', 'Git'] },
+  { group: 'Languages', items: ['Kotlin', 'Java', 'Dart', 'SQL'] },
+  { group: 'Android UI', items: ['Jetpack Compose', 'XML Views', 'Material 3', 'Navigation', 'Figma'] },
+  { group: 'Architecture', items: ['MVVM', 'Clean Architecture', 'Hilt', 'Coroutines', 'Flow', 'RxJava'] },
+  { group: 'APIs & Data', items: ['REST APIs', 'Retrofit', 'JSON', 'Room', 'SQLite', 'WorkManager'] },
+  { group: 'Platform & Location', items: ['Android SDK', 'InCallService', 'Exact Alarms', 'Biometric', 'Maps', 'GPS Tracking'] },
+  { group: 'Firebase & Monetization', items: ['Firebase', 'Analytics', 'Crashlytics', 'AdMob', 'Play Billing', 'In-App Purchases'] },
+  { group: 'Domains', items: ['Government Projects', 'Ticketing & POS', 'Marketplace', 'Image Processing'] },
+  { group: 'Tooling & Release', items: ['Android Studio', 'Git', 'Android Testing', 'Debugging', 'Play Console'] },
 ]
 
 // Career journey on /about. Dates are 'YYYY-MM' (or 'YYYY' when only the
@@ -62,32 +63,52 @@ export const experience = [
     start: '2025-04',
     end: null,
     description:
-      'Building and maintaining a portfolio of consumer Android apps on Google Play: dialers, SMS messengers, galleries, calendar, alarm clock and utilities.',
-    tags: ['Kotlin', 'Jetpack Compose', 'Firebase'],
+      'Developing and maintaining Android apps in Kotlin and Java: new features from business requirements, API integration, UI implementation, debugging and performance improvements, delivered with the team.',
+    tags: ['Kotlin', 'Java', 'Jetpack Compose', 'Firebase'],
   },
   {
     role: 'Android Developer',
-    company: 'Wonder Software',
-    start: '2021-01',
+    company: 'Cursor Soft Pvt. Ltd.',
+    start: '2024-05',
     end: '2025-03',
-    description: 'Built and maintained native Android apps in Kotlin and Java.',
-    tags: ['Kotlin', 'Java'],
+    description:
+      'Government and public-transport apps: live bus tracking in My AMTS (Ahmedabad Municipal Transport Service), the AFCS fare collection app for Rajkot Rajpath Ltd., Pay & Park ticketing and parking, and ETM (electronic ticketing machine) ticket creation and transactions. Worked directly with stakeholders on requirements.',
+    tags: ['Kotlin', 'Java', 'Government Projects', 'Maps', 'Ticketing & POS'],
+  },
+  {
+    role: 'Senior Android Developer & Team Lead',
+    company: 'SkyWalk Infotech',
+    start: '2023-01',
+    end: '2024-05',
+    description:
+      'Led and mentored the team while planning, building and delivering client apps in Java and Kotlin. Turned client requirements into custom features, adopted Jetpack Compose (and wrote a complete Compose tutorial for the team), and used analytics and debugging to improve reliability.',
+    tags: ['Kotlin', 'Java', 'Jetpack Compose', 'Team Lead'],
+  },
+  {
+    role: 'Junior Android Developer',
+    company: 'SkyWalk Infotech',
+    start: '2022-02',
+    end: '2023-01',
+    description: 'Android app development at SkyWalk Infotech, leading to a promotion to Senior Android Developer in January 2023.',
+    tags: ['Java', 'Kotlin'],
+  },
+  {
+    role: 'Android Developer',
+    company: 'Lathiya Infotech',
+    start: '2021-02',
+    end: '2022-02',
+    description:
+      'Built a strong foundation in Java and the Android SDK: maintaining apps, troubleshooting crashes, reskinning and customising app UIs, and working inside existing codebases.',
+    tags: ['Java', 'Android SDK'],
   },
 ]
 
 export const education = [
   {
-    degree: 'Master of Computer Applications',
-    short: 'MCA',
-    school: '', // TODO: university / college name
-    start: '2019',
-    end: '2021',
-  },
-  {
-    degree: 'Bachelor of Computer Applications',
-    short: 'BCA',
-    school: '', // TODO: university / college name
-    start: '2016',
+    degree: 'Higher Secondary Certificate (12th)',
+    short: 'HSC',
+    school: 'Khodiyar Vidhyalaya',
+    start: '2018',
     end: '2019',
   },
 ]

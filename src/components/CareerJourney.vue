@@ -108,7 +108,7 @@ function focusCard(id) {
         <dd class="text-gradient mt-1 text-3xl font-bold"><CountUp :value="liveCount" /></dd>
       </div>
       <div v-reveal="240" class="card p-4">
-        <dt class="text-xs text-slate-500">Highest degree</dt>
+        <dt class="text-xs text-slate-500">Education</dt>
         <dd class="text-gradient mt-1 text-3xl font-bold">{{ education[0]?.short }}</dd>
       </div>
     </dl>
