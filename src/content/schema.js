@@ -1,8 +1,8 @@
 // Content schemas (zod). Used at build/check time by vite.config.js and
-// scripts/check-content.mjs. Rules mirror docs/SITE_PLAN.md §3.
+// scripts/check-content.mjs. Field-by-field guide: docs/CONTENT.md.
 import { z } from 'zod'
 
-export const PROJECT_TYPES = ['Messaging', 'Dialer & Contacts', 'Gallery & Media', 'Productivity', 'Social']
+export const PROJECT_TYPES = ['Messaging', 'Dialer & Contacts', 'Gallery & Media', 'Productivity', 'Lifestyle', 'Social']
 export const PROJECT_STATUSES = ['live', 'completed', 'in-progress']
 
 const imagePath = z.string().regex(/^\/images\/.+\.(png|webp|jpg|jpeg|svg)$/, 'must be a /images/... path')
@@ -53,7 +53,7 @@ export const snippetSchema = z
     file: z.string().min(1),
     caption: z.string().min(10).max(140, 'caption should be ≤ 140 characters'),
     order: z.number().int().default(100),
-    relatedProjects: z.array(z.string()).min(1).max(4),
+    relatedProjects: z.array(z.string()).max(4).default([]),
     // An interactive mock of the code's result (see src/components/showcase/).
     preview: z.enum(SNIPPET_PREVIEWS).optional(),
     // Tappable explanations, keyed to 1-based line numbers of the code block.

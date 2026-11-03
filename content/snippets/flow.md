@@ -3,7 +3,7 @@ title: "Flow & StateFlow"
 file: "AlbumsViewModel.kt"
 caption: "One reactive UI state, rebuilt whenever the data, the settings or the search text change."
 order: 2
-relatedProjects: [gallery-pro, gallery-photo-album, phone-call]
+relatedProjects: []
 notes:
   - line: 6
     text: "User input is a StateFlow too, so it can be combined like any other source."

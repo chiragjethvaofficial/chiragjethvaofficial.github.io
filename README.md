@@ -1,296 +1,113 @@
 <div align="center">
 
 <a href="https://chiragjethvaofficial.github.io/">
-  <img src="public/og.png" alt="Chirag Jethva — Android Developer portfolio" width="100%" />
+  <img src="public/og.png" alt="Chirag Jethva, Android developer portfolio" width="100%" />
 </a>
 
-# Chirag Jethva — Portfolio
+# Chirag Jethva | Portfolio
 
-**Android developer · Kotlin & Jetpack Compose · 13 apps live on Google Play**
+**Android developer · Kotlin & Jetpack Compose · apps live on Google Play**
 
-### 🌐 [chiragjethvaofficial.github.io](https://chiragjethvaofficial.github.io/)
-
-[![Live site](https://img.shields.io/badge/Live-chiragjethvaofficial.github.io-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chiragjethvaofficial.github.io/)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/chiragjethvaofficial/chiragjethvaofficial.github.io/deploy.yml?branch=main&style=for-the-badge&label=Deploy&logo=githubactions&logoColor=white)](https://github.com/chiragjethvaofficial/chiragjethvaofficial.github.io/actions)
-
+[![Deploy](https://img.shields.io/github/actions/workflow/status/chiragjethvaofficial/chiragjethvaofficial.github.io/deploy.yml?branch=main&label=deploy&logo=githubactions&logoColor=white)](https://github.com/chiragjethvaofficial/chiragjethvaofficial.github.io/actions)
 ![Vue](https://img.shields.io/badge/Vue_3-35495E?logo=vuedotjs&logoColor=4FC08D)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-0F172A?logo=tailwindcss&logoColor=38BDF8)
-![Markdown](https://img.shields.io/badge/Content-Markdown-000?logo=markdown&logoColor=white)
-![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?logo=pwa&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222?logo=githubpages&logoColor=white)
 
 </div>
 
----
+A fast, pre-rendered portfolio site showcasing Android apps, technical case studies and articles.
+Every app and article is a Markdown file, validated on every build.
 
-## 🔗 Quick links
+## Features
 
-| Page | URL |
+- **Projects:** every app with Google Play screenshots (zoomable lightbox), features, technical highlights and a written case study. Search and filters are synced to the URL.
+- **Dev Notes:** technical articles with a table of contents, syntax highlighting and RSS/Atom feeds.
+- **Search:** typo-tolerant full-text search across pages, apps, articles and their sections (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd>).
+- **About:** a tech explorer (pick a skill to see the apps that use it) and an interactive career timeline.
+- **SEO:** static HTML for every route, per-page metadata, JSON-LD, sitemap and an auto-generated share image per page.
+- **PWA:** installable, works offline, with optimised WebP images. Dark mode follows the system setting.
+
+## Tech stack
+
+| Area | Tools |
 | --- | --- |
-| 🏠 Home | https://chiragjethvaofficial.github.io/ |
-| 👤 About & tech explorer | https://chiragjethvaofficial.github.io/about |
-| 📱 All apps (search + filters) | https://chiragjethvaofficial.github.io/projects |
-| 🟢 Only apps live on Google Play | https://chiragjethvaofficial.github.io/projects?status=live |
-| 📄 Flagship — PDF Reader & Editor | https://chiragjethvaofficial.github.io/projects/pdf-reader |
-| 📝 Dev Notes (blog) | https://chiragjethvaofficial.github.io/blog |
-| 📡 RSS feed | https://chiragjethvaofficial.github.io/blog/rss.xml |
-| ✉️ Contact | https://chiragjethvaofficial.github.io/contact |
+| Framework | Vue 3, Vue Router, `vite-ssg` (static pre-rendering) |
+| Styling | Tailwind CSS v4 + typography plugin |
+| Content | Markdown via `unplugin-vue-markdown`, Shiki highlighting, zod validation |
+| Search | MiniSearch |
+| Build extras | satori + resvg (share images), `feed` (RSS), `vite-plugin-pwa`, sharp |
+| Hosting | GitHub Pages via GitHub Actions |
 
-> 💡 **Tip:** press <kbd>Ctrl</kbd> + <kbd>K</kbd> anywhere on the site to search every app and article.
+## Getting started
 
----
+Requires **Node.js 24** (the version used in CI).
 
-## 📖 Quick guide: how do I…?
-
-**The easiest way to do anything:** open Claude Code in this folder and say it in plain words. Claude makes the change, checks it, **publishes it automatically**, and gives you the link.
-
-| I want to… | Ask Claude | Or do it yourself |
-| --- | --- | --- |
-| **Publish my changes** | "publish it" | Double-click **`publish.cmd`**, or run `npm run deploy -- "what changed"` |
-| **Add an app** from my workspace | `/add-project producation/MyApp` | See [Add a new app by hand](#-add-a-new-app-by-hand) |
-| **Add an app** that's only on Google Play | "add this app: <Play Store link>" | Same as above, using the listing for details |
-| **Remove an app** | `/remove-project <app>` | Delete its `.md` file + icon, move its row to *Excluded* in `docs/PROJECTS.md` |
-| **Write an article** | `/new-post <topic>` (saved as a draft) | Create `content/blog/<name>.md` with `draft: true` |
-| **Publish a draft article** | "publish the article <name>" | Change `draft: true` → `draft: false`, then publish |
-| **Plan article ideas** | "write the next article from the ideas list" | Add a line under **Ideas** in [`docs/POSTS.md`](docs/POSTS.md) |
-| **Change my bio, email, skills, job** | "change my bio to …" | Edit [`src/data/portfolio.js`](src/data/portfolio.js), then publish |
-| **Update an app's screenshots** | "refresh screenshots for <app>" | `npm run screenshots -- <app>`, then publish |
-| **Preview before publishing** | "show me locally" | `npm run dev` → open http://localhost:5173 |
-| **See what's on the site** | "what apps/articles are on the site?" | [`docs/PROJECTS.md`](docs/PROJECTS.md) (apps) · [`docs/POSTS.md`](docs/POSTS.md) (articles) |
-
-**Where things live:**
-
+```bash
+npm ci
+npm run dev       # http://localhost:5173 (draft articles are visible)
 ```
-content/projects/   → one .md file per app      (what each app page shows)
-content/blog/       → one .md file per article  (draft: true = hidden until you publish)
-src/data/portfolio.js → your name, bio, email, skills, experience
-docs/PROJECTS.md    → list of apps on the site (+ removed ones, so they never come back)
-docs/POSTS.md       → list of articles (+ ideas to write next)
-publish.cmd         → double-click to publish
-```
-
-**Safety net:** every publish runs `npm run check` first. If something's wrong (a missing or too-long field, an app or article missing from its list, a missing image, a secret key pasted in), it **stops and tells you exactly which file and field**, and nothing broken goes live.
-
----
-
-## 📱 Featured apps
-
-| | App | What it is | Status |
-| :---: | --- | --- | --- |
-| <img src="public/images/apps/pdf-reader.webp" width="48" /> | [**PDF Reader & Editor**](https://chiragjethvaofficial.github.io/projects/pdf-reader) | Annotate, sign, edit text, lock, convert & scan PDFs | 🟠 In progress |
-| <img src="public/images/apps/phone-call.webp" width="48" /> | [**Phone Call**](https://chiragjethvaofficial.github.io/projects/phone-call) | Default dialer with spam blocking & call themes | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.phonecall.phone.contact.callerdialer) |
-| <img src="public/images/apps/messages-compose.webp" width="48" /> | [**Messages**](https://chiragjethvaofficial.github.io/projects/messages-compose) | Default SMS & MMS app built in Jetpack Compose | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.message.textmessenger.smsapp) |
-| <img src="public/images/apps/gallery-pro.webp" width="48" /> | [**Gallery - Photo Gallery**](https://chiragjethvaofficial.github.io/projects/gallery-pro) | Compose gallery with timeline, editor & photo picker | 🟢 [Google Play](https://play.google.com/store/apps/details?id=com.gallery.picturegalleryapp.gallerypro) |
-
-➡️ **[See all 15 apps →](https://chiragjethvaofficial.github.io/projects)**
-
----
-
-## ✨ What's on the site
-
-- **Content-driven:** every app and article is a Markdown file in [`content/`](content), validated on every build.
-- **App pages:** Google Play screenshots with a zoomable lightbox, a features / under-the-hood breakdown, a written case study, and a Google Play badge.
-- **Dev Notes (blog):** technical articles with a table of contents, code highlighting and an RSS feed. The blog appears once the first article is published.
-- **Search:** typo-tolerant full-text search across apps and articles. Use <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>K</kbd> anywhere, or the Projects page (filters live in the URL).
-- **Tech explorer:** click any technology on the About page to see which apps use it.
-- **Installable & offline (PWA)**, with optimised WebP images.
-- **SEO:** pre-rendered HTML, structured data, sitemap, and an **auto-generated share image for every page**.
-
----
-
-## 🤖 AI-driven maintenance
-
-This site is maintained with Claude Code. The plan and project tracking live in the repo:
-
-| File | Purpose |
-| --- | --- |
-| [`CLAUDE.md`](CLAUDE.md) | Rules and step-by-step workflows that AI agents follow |
-| [`docs/SITE_PLAN.md`](docs/SITE_PLAN.md) | Site plan: pages, content model, design system, SEO, search, PWA, backlog, decision log |
-| [`docs/PROJECTS.md`](docs/PROJECTS.md) | Project registry: 📥 Inbox, ✅ on site, 🚫 excluded, 📝 changelog |
-| [`docs/POSTS.md`](docs/POSTS.md) | Blog registry: 💡 ideas, 📰 published & drafts, 📝 changelog |
-
-**Claude Code commands:**
 
 | Command | What it does |
 | --- | --- |
-| `/add-project producation/MyNewApp` | Reads the app's source, checks Google Play, adds icon + screenshots + a case study, updates the registry, publishes |
-| `/remove-project <slug>` | Removes an app and records it as **Excluded** so it's never re-added |
-| `/new-post <topic>` | Drafts a Dev Notes article from the real source code (stays a draft until you approve it) |
+| `npm run dev` | Start the dev server |
+| `npm run check` | Validate all content: schemas, images, cross-references, code snippets, secrets |
+| `npm run build` | Pre-render every page, plus sitemap, robots.txt, feeds, share images and service worker |
+| `npm run preview` | Serve the production build locally |
+| `npm run build:drafts` | Local build that includes draft articles (never deploy this) |
+| `npm run icons` | Normalise app icons to 256px WebP and regenerate favicons/PWA icons |
+| `npm run screenshots -- <slug>` | Fetch a live app's screenshots from its Google Play listing |
+| `npm run play-meta -- <slug>` | Record the Google Play developer account of a live app |
+| `npm run og` | Regenerate share images (and the README banner `public/og.png`) |
 
-You can also add a line to the **Inbox** in `docs/PROJECTS.md` and ask Claude to *"process the project inbox"*.
-
-`npm run check` (also run in CI before every deploy) blocks a deploy if any content file is invalid, either registry (apps or articles) disagrees with the content, or a secret slipped in.
-
----
-
-## 🚀 Publish (one command)
-
-After any change (an app, an article, your bio…), publish with **one** of:
-
-| How | Command |
-| --- | --- |
-| Terminal | `npm run deploy -- "what changed"` |
-| Double-click | **`publish.cmd`** in the project folder (asks what changed) |
-| Ask Claude | "publish it". Claude publishes automatically after every change anyway. |
-
-What it does ([`scripts/deploy.mjs`](scripts/deploy.mjs)):
-
-1. `npm run check`: stops if any content is invalid, so nothing broken gets pushed
-2. commits all changes with your message (skipped if nothing changed)
-3. pushes to GitHub, which triggers the deploy workflow
-4. **waits for the deploy** and tells you if it succeeded or failed (with a link)
-5. confirms https://chiragjethvaofficial.github.io/ is live
-
-Options: `--build` builds locally first (catches errors before pushing) · `--no-wait` pushes and exits.
-
----
-
-## ✏️ How to update the site
-
-| I want to… | Edit this |
-| --- | --- |
-| Add / edit an app | `content/projects/<slug>.md` (+ a row in `docs/PROJECTS.md`) |
-| Write / publish an article | `content/blog/<slug>.md` (set `draft: false` to publish) + its row in `docs/POSTS.md` |
-| Change my name, bio, email, socials, skills, experience | [`src/data/portfolio.js`](src/data/portfolio.js) |
-| Change the colour theme | `--color-brand-*` in [`src/style.css`](src/style.css) |
-
-### ➕ Add a new app by hand
-
-1. **Icon:** put it at `public/images/apps/my-app.png`, then run `npm run icons` (converts it to a 256px WebP).
-2. **Content:** create `content/projects/my-app.md` (the file name becomes the URL `/projects/my-app`):
-
-   ```markdown
-   ---
-   title: "My App"
-   type: "Productivity"          # Messaging | Dialer & Contacts | Gallery & Media | Productivity | Social
-   status: live                  # live | completed | in-progress
-   featured: false               # true = show on the home page (keep exactly 4)
-   order: 50
-   icon: /images/apps/my-app.webp
-   playPackage: com.example.myapp   # omit if not on Google Play
-   summary: "One sentence about the app (110 characters max)."
-   features:
-     - "Feature one"
-     - "Feature two"
-     - "Feature three"
-   highlights:
-     - "Interesting technical detail"
-     - "Another one"
-   tags: ["Kotlin", "Jetpack Compose", "Room"]
-   ---
-
-   ## Overview
-
-   What the app does and who it's for.
-
-   ## How it works
-
-   The interesting technical parts.
-   ```
-
-3. **Screenshots & developer** (live apps): `npm run screenshots -- my-app` and `npm run play-meta -- my-app` pull them from the app's Google Play listing.
-4. **Registry:** add a row to [`docs/PROJECTS.md`](docs/PROJECTS.md), then run `npm run check`.
-5. **Publish:** `npm run deploy -- "Add My App"` (or double-click `publish.cmd`).
-
-### 📝 Still to fill in
-
-- [x] ~~Contact email~~ (done)
-- [x] ~~Publish the first articles~~ (done: 3 live)
-- [ ] University names in `education` (in `src/data/portfolio.js`)
-- [ ] LinkedIn / other profiles in `socials`
-- [ ] Optional: `public/resume.pdf`, then set `resumeUrl: '/resume.pdf'`
-- [ ] Google Search Console: verify the site and submit `sitemap.xml` (see [SEO](#-seo))
-
----
-
-## 🛠️ Run it locally
-
-Requires **Node 20+**.
-
-```bash
-npm install
-npm run dev            # dev server → http://localhost:5173 (draft articles visible)
-npm run check          # validate content + registry + secrets scan
-npm run build          # pre-render pages + sitemap + RSS + share images + service worker
-npm run build:drafts   # local preview including draft articles (don't deploy)
-npm run preview        # serve the production build
-npm run icons          # normalise app icons (+ PWA icons)
-npm run screenshots -- <slug>   # fetch Google Play screenshots for an app
-npm run og             # regenerate share images (+ this README's banner)
-npm run play-meta -- <slug>     # fetch the Play developer (console) name for an app
-npm run deploy -- "message"    # publish: check → commit → push → wait → verify
-```
-
----
-
-## 🗂️ Project structure
+## Project structure
 
 ```
-├── .claude/commands/              # /add-project, /remove-project, /new-post for Claude Code
-├── .github/workflows/deploy.yml   # check + build + deploy to GitHub Pages on push to main
-├── CLAUDE.md                      # AI agent rules + workflows
-├── publish.cmd                    # double-click to publish the site
 ├── content/
-│   ├── projects/*.md              # ⭐ one file per app: data + case study
-│   └── blog/*.md                  # ⭐ Dev Notes articles
-├── docs/
-│   ├── SITE_PLAN.md               # site plan, content model, decisions
-│   ├── PROJECTS.md                # project registry (inbox / on site / excluded)
-│   └── POSTS.md                   # blog registry (ideas / published / drafts)
-├── public/
-│   ├── images/apps/               # app icons (<slug>.webp) + screenshots (<slug>/*.webp)
-│   ├── og.png                     # README banner (generated by npm run og)
-│   └── robots.txt, pwa-*.png      # crawler rules, icons for installing the site
-├── scripts/
-│   ├── content-fs.mjs             # Node content loader + validation
-│   ├── check-content.mjs          # npm run check
-│   ├── og.mjs                     # share images (satori + resvg)
-│   ├── rss.mjs                    # RSS / Atom feeds
-│   ├── icons.mjs                  # icon normalisation + PWA icons
-│   ├── fetch-screenshots.mjs      # Google Play screenshots
-│   ├── play-meta.mjs              # Play developer (console) name
-│   └── deploy.mjs                 # one-command publish (npm run deploy / publish.cmd)
+│   ├── projects/<slug>.md   # one app per file: frontmatter + case study
+│   ├── blog/<slug>.md       # one article per file
+│   └── snippets/<slug>.md   # code samples for the home-page showcase
+├── docs/CONTENT.md          # content fields and rules
+├── public/                  # static files: app icons, screenshots, favicons
+├── scripts/                 # content checks, share images, feeds, icons, Play metadata
 ├── src/
-│   ├── content/                   # schema (zod) + browser loader for content/
-│   ├── data/portfolio.js          # profile, skills, experience, nav
-│   ├── views/                     # Home, About, Projects, ProjectDetail, Blog, BlogPost, Contact, 404
-│   ├── components/                # ProjectCard, ScreenshotGallery, CommandPalette, PostCard, …
-│   ├── composables/               # seo.js (meta + JSON-LD), internal links, palette state
-│   ├── utils/search.js            # MiniSearch full-text search
-│   └── style.css                  # Tailwind theme + Markdown (prose) styles
-└── vite.config.js                 # Markdown, PWA, image optimiser, pre-render routes, sitemap/RSS/OG
+│   ├── components/          # UI components (blog/ holds article widgets)
+│   ├── composables/         # SEO, internal links, search palette state
+│   ├── content/             # zod schemas + browser content loader
+│   ├── data/
+│   │   ├── site.js          # site URL and base path (single source of truth)
+│   │   └── portfolio.js     # profile, skills, experience, navigation
+│   ├── utils/search.js      # full-text search index
+│   ├── views/               # route pages
+│   └── style.css            # Tailwind theme and Markdown styles
+└── vite.config.js           # Markdown, PWA, pre-rendered routes, sitemap/feeds/share images
 ```
 
----
+## Editing content
 
-## ⚙️ How deployment works
-
-Hosted on **GitHub Pages** at **https://chiragjethvaofficial.github.io/**.
-
-- Every push to `main` triggers [`deploy.yml`](.github/workflows/deploy.yml): `npm ci`, then `npm run check`, then `npm run build`, then publish `dist/`.
-- Check progress under the [**Actions** tab](https://github.com/chiragjethvaofficial/chiragjethvaofficial.github.io/actions).
-- One-time setting (already done): **Settings → Pages → Source: GitHub Actions**.
-
----
-
-## 🔍 SEO
-
-| What | Where |
+| To change… | Edit |
 | --- | --- |
-| Pre-rendered HTML for every page (HTTP 200) | `vite-ssg`, routes generated from `content/` |
-| Title, description, canonical, Open Graph, Twitter | `src/composables/seo.js` |
-| Structured data (Person, SoftwareApplication, BlogPosting, Breadcrumbs) | `useSeo()` calls in each view |
-| Share image per page | generated at build → `/og/…png` |
-| Sitemap / RSS | https://chiragjethvaofficial.github.io/sitemap.xml · `/blog/rss.xml` once posts are published |
-| Robots | https://chiragjethvaofficial.github.io/robots.txt |
+| An app | `content/projects/<slug>.md` |
+| An article | `content/blog/<slug>.md` (`draft: true` keeps it out of production) |
+| Name, bio, email, socials, skills, experience | `src/data/portfolio.js` |
+| Brand colours | `--color-brand-*` in `src/style.css` |
 
-**Next step:** add the site in [Google Search Console](https://search.google.com/search-console) and submit `sitemap.xml`.
+Field rules for every content type are in [`docs/CONTENT.md`](docs/CONTENT.md). Run `npm run check` after changes: it
+reports the exact file and field of any problem.
 
----
+## Configuration
 
-<div align="center">
+The public URL is set in one place, [`src/data/site.js`](src/data/site.js):
 
-Made with 💚 by **Chirag Jethva** · [chiragjethvaofficial.github.io](https://chiragjethvaofficial.github.io/)
+```js
+export const SITE_URL = 'https://chiragjethvaofficial.github.io'
+```
 
-</div>
+The Vite base path, router, asset URLs, canonical links, sitemap, feeds and PWA scope all derive from it. To move to a
+custom domain, set `SITE_URL` to the domain and add a `public/CNAME` file containing it.
+
+## Deployment
+
+Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+`npm ci` → `npm run check` → `npm run build` → GitHub Pages.
+
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.

@@ -3,7 +3,7 @@ title: "Hilt"
 file: "RepositoryModule.kt"
 caption: "Dependency injection with compile-time checks: no factories and no hand-wired singletons."
 order: 3
-relatedProjects: [gallery-pro, messages-compose]
+relatedProjects: []
 notes:
   - line: 1
     text: "@HiltAndroidApp creates the app-wide dependency graph when the app starts."

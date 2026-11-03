@@ -2,8 +2,8 @@
 title: "Vidix - AI Photo Video Generator"
 type: "Gallery & Media"
 status: live
-featured: false
-order: 15
+featured: true
+order: 10
 icon: /images/apps/vidix-ai-video-generator.webp
 playPackage: com.vidix.aivideogenerator.aiphotogenerator
 developer: "Supercool Labs"

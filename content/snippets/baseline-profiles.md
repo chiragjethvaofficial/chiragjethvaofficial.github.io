@@ -3,7 +3,7 @@ title: "Baseline Profiles"
 file: "StartupBenchmark.kt"
 caption: "Faster cold starts and smoother scrolling: the first-run code paths are compiled ahead of time and measured."
 order: 9
-relatedProjects: [phone-call, messages-compose, alarm-clock]
+relatedProjects: []
 notes:
   - line: 3
     text: "BaselineProfileRule records which classes and methods the app uses on its hot paths."

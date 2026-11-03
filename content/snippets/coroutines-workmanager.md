@@ -3,7 +3,7 @@ title: "Coroutines & WorkManager"
 file: "TrashCleanupWorker.kt"
 caption: "Reliable background jobs that survive app restarts and reboots, written as plain suspend code."
 order: 6
-relatedProjects: [pdf-reader, messages-compose, gallery-pro]
+relatedProjects: [gallery-locker]
 notes:
   - line: 4
     text: "CoroutineWorker lets doWork() be a suspend function, with no callbacks or threads to manage."

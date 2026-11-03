@@ -57,7 +57,6 @@ const SYNONYMS = [
   ['music', 'audio', 'song', 'sound'],
   ['record', 'recorder', 'voice', 'recording'],
   ['ads', 'admob', 'monetization'],
-  ['ai', 'claude', 'agent', 'llm'],
   ['hire', 'contact', 'email', 'freelance'],
   ['resume', 'cv', 'experience', 'career', 'job'],
   ['database', 'room', 'sqlite', 'realm'],

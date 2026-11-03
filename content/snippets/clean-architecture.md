@@ -3,7 +3,7 @@ title: "Clean Architecture"
 file: "GetRecentCallsUseCase.kt"
 caption: "Business rules live in a pure-Kotlin :domain module. Android, Room and the SDKs stay in :data."
 order: 4
-relatedProjects: [phone-call, pdf-reader, gallery-pro, messages-compose]
+relatedProjects: []
 notes:
   - line: 1
     text: "The domain module has no Android imports, so its logic runs in fast plain JVM unit tests."

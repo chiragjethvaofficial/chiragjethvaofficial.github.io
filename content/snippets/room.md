@@ -3,7 +3,7 @@ title: "Room"
 file: "AlarmDao.kt"
 caption: "A typed SQLite layer whose queries return Flows, so the UI updates itself when data changes."
 order: 5
-relatedProjects: [alarm-clock, phone-call, messages-compose, pdf-reader]
+relatedProjects: [gallery-locker, phone-caller-contacts]
 notes:
   - line: 6
     text: "A TypeConverter stores Set<DayOfWeek> in a single column."

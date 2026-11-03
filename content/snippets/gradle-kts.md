@@ -3,7 +3,7 @@ title: "Gradle KTS"
 file: "build.gradle.kts"
 caption: "Multi-module builds in Kotlin DSL with one version catalog, so every module shares the same versions."
 order: 10
-relatedProjects: [pdf-reader, phone-call, messages-compose]
+relatedProjects: []
 notes:
   - line: 3
     text: "Plugins come from gradle/libs.versions.toml, so versions are declared once and used everywhere."

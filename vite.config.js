@@ -7,7 +7,7 @@ import anchor from 'markdown-it-anchor'
 import Shiki from '@shikijs/markdown-it'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
-import { SITE_URL } from './src/data/site.js'
+import { BASE_PATH, SITE_URL, withBase } from './src/data/site.js'
 import { loadAllOrThrow } from './scripts/content-fs.mjs'
 import { writeFeeds } from './scripts/rss.mjs'
 import { generateOgImages } from './scripts/og.mjs'
@@ -28,8 +28,8 @@ export default defineConfig(({ command }) => {
   ]
 
   return {
-    // User site (<user>.github.io) is served from the root, so base is '/'.
-    base: '/',
+    // Derived from SITE_URL (src/data/site.js): '/' on a domain root, '/<repo>/' on a project page.
+    base: BASE_PATH,
     plugins: [
       // Draft posts must never reach the public bundle: in production builds the
       // file is replaced by a stub that only says "draft: true" (filtered out later).
@@ -58,13 +58,15 @@ export default defineConfig(({ command }) => {
         async markdownItSetup(md) {
           md.use(anchor, { permalink: anchor.permalink.headerLink(), slugify: (s) => s.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-') })
           md.use(await Shiki({ themes: { light: 'github-light', dark: 'github-dark' }, defaultColor: false }))
-          // Open external links in a new tab.
+          // Internal links ('/projects/x') get the base path; external links open in a new tab.
           const defaultLinkOpen = md.renderer.rules.link_open ?? ((t, i, o, e, self) => self.renderToken(t, i, o))
           md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
             const href = tokens[idx].attrGet('href') ?? ''
             if (/^https?:\/\//.test(href)) {
               tokens[idx].attrSet('target', '_blank')
               tokens[idx].attrSet('rel', 'noopener')
+            } else {
+              tokens[idx].attrSet('href', withBase(href))
             }
             return defaultLinkOpen(tokens, idx, options, env, self)
           }
@@ -87,12 +89,12 @@ export default defineConfig(({ command }) => {
           theme_color: '#059669',
           background_color: '#020617',
           display: 'standalone',
-          start_url: '/',
-          scope: '/',
+          start_url: BASE_PATH,
+          scope: BASE_PATH,
           icons: [
-            { src: '/pwa-192.png', sizes: '192x192', type: 'image/png' },
-            { src: '/pwa-512.png', sizes: '512x512', type: 'image/png' },
-            { src: '/maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+            { src: 'pwa-192.png', sizes: '192x192', type: 'image/png' },
+            { src: 'pwa-512.png', sizes: '512x512', type: 'image/png' },
+            { src: 'maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
           ],
         },
         workbox: {
@@ -129,6 +131,7 @@ export default defineConfig(({ command }) => {
           'dist/sitemap.xml',
           `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
         )
+        writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`)
         console.log(`sitemap.xml: ${pages.length} URLs`)
         const feedCount = writeFeeds(posts, { siteUrl: SITE_URL, author: 'Chirag Jethva' })
         if (feedCount) console.log(`blog/rss.xml + atom.xml: ${feedCount} posts`)

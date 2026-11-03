@@ -51,7 +51,7 @@ if (p) {
         description: p.summary,
         operatingSystem: 'Android',
         applicationCategory: category[p.type] ?? 'MobileApplication',
-        image: p.icon ? SITE_URL + p.icon : undefined,
+        image: p.icon ? new URL(p.icon, SITE_URL).href : undefined,
         url: p.playUrl ?? url,
         ...(p.playUrl && { installUrl: p.playUrl, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }),
         featureList: p.features.join('; '),

@@ -3,7 +3,7 @@ title: "One template, 11 Play Store apps: Remote Config, consent and Baseline Pr
 description: "The shared foundation behind my Google Play apps: Firebase Remote Config switches, a GDPR consent flow, onboarding, in-app updates and Baseline Profiles for fast startup."
 date: 2026-09-30
 tags: ["Android", "Firebase", "Google Play", "Performance", "Architecture"]
-relatedProjects: ["phone-call", "messages-compose", "gallery-pro", "calendar-2026"]
+relatedProjects: []
 draft: false
 ---
 
@@ -45,7 +45,7 @@ Cold start is the first impression. Most of the apps include a `:benchmark` **Ma
 
 ## 6. Architecture that scales across apps
 
-Newer apps such as [Messages](/projects/messages-compose), [Gallery](/projects/gallery-pro) and the [PDF editor](/projects/pdf-reader) use **multi-module Clean Architecture**: `domain` for models and use cases, `data` with Room and repositories, `core`/`common` for shared UI and utilities, and feature modules on top. Older apps use a simpler layout. Keeping the template's pieces in their own packages lets either style adopt them.
+Newer apps such as Messages, Gallery and the PDF editor use **multi-module Clean Architecture**: `domain` for models and use cases, `data` with Room and repositories, `core`/`common` for shared UI and utilities, and feature modules on top. Older apps use a simpler layout. Keeping the template's pieces in their own packages lets either style adopt them.
 
 ## Takeaways
 

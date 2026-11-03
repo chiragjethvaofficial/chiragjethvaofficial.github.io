@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { usePreferredReducedMotion } from '@vueuse/core'
-import { getPost, getProject, liveCount, profile, projects, socials } from '../../data/portfolio'
+import { getPost, getProject, liveCount, profile, projects, SITE_URL, socials } from '../../data/portfolio'
 import AppIcon from '../AppIcon.vue'
 
 // A Google-style results snapshot (blog: find-chirag-jethva-android-developer).
@@ -27,14 +27,18 @@ const searches = [
         { to: '/blog', label: 'Dev Notes', text: 'Technical articles' },
         { to: '/contact', label: 'Contact', text: 'Hire for a project' },
       ]),
-      app('phone-call'),
+      app('phone-dialer-contacts-calls'),
       post('shipping-android-apps-template-remote-config-baseline-profiles'),
     ],
   },
   {
-    label: 'chirag jethva jetpack compose',
-    words: ['compose', 'jetpack', 'ui', 'material', 'sms', 'messages', 'gallery', 'photo'],
-    results: [app('messages-compose'), app('gallery-pro'), page('/projects', 'Projects — Chirag Jethva', 'Every app, grouped by status, with a case study for each.')],
+    label: 'chirag jethva apps',
+    words: ['apps', 'play', 'store', 'gallery', 'photo', 'video', 'vidix', 'vault', 'fashion', 'zenzi', 'alarm', 'calculator'],
+    results: [
+      app('vidix-ai-video-generator'),
+      app('gallery-locker'),
+      page('/projects', 'Projects — Chirag Jethva', 'Every app, grouped by status, with a case study for each.'),
+    ],
   },
   {
     label: 'chirag jethva kotlin',
@@ -48,7 +52,7 @@ const searches = [
   {
     label: 'chirag jethva pdf editor',
     words: ['pdf', 'editor', 'webview', 'pdfjs', 'pdf.js', 'annotate', 'sign', 'scanner', 'document'],
-    results: [post('pdf-editor-pdfjs-webview-android'), app('pdf-reader')],
+    results: [post('pdf-editor-pdfjs-webview-android'), page('/blog', 'Dev Notes — Chirag Jethva', 'Technical articles on Android: dialers, PDF editing, release tooling and more.')],
   },
 ]
 const TABS = [
@@ -70,7 +74,7 @@ const results = computed(() => searches[selected.value].results.filter((r) => !t
 // 'YYYY-MM-DD' → 'Oct 2, 2026' without timezone or locale drift between SSR and the browser.
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 const shortDate = (d) => `${MONTHS[+d.slice(5, 7) - 1]} ${+d.slice(8, 10)}, ${d.slice(0, 4)}`
-const crumb = (to) => 'https://chiragjethvaofficial.github.io' + (to === '/' ? '' : to.replaceAll('/', ' › '))
+const crumb = (to) => SITE_URL + (to === '/' ? '' : to.replaceAll('/', ' › '))
 const googleUrl = computed(() => `https://www.google.com/search?q=${encodeURIComponent(query.value.trim() || searches[selected.value].label)}`)
 
 function load() {
@@ -206,7 +210,7 @@ onBeforeUnmount(() => {
               <span class="flex items-center gap-2.5">
                 <img v-if="r.icon" :src="r.icon" alt="" width="28" height="28" class="size-7 shrink-0 rounded-full border border-slate-200 dark:border-[#3c4043]" />
                 <img v-else-if="profile.avatar" :src="profile.avatar" alt="" width="28" height="28" class="size-7 shrink-0 rounded-full object-cover" />
-                <span v-else class="grid size-7 shrink-0 place-items-center rounded-full bg-brand-gradient text-[10px] font-bold text-white">RS</span>
+                <span v-else class="grid size-7 shrink-0 place-items-center rounded-full bg-brand-gradient text-[10px] font-bold text-white">{{ profile.initials }}</span>
                 <span class="min-w-0 leading-tight">
                   <span class="block text-sm text-slate-800 dark:text-[#dadce0]">Chirag Jethva</span>
                   <span class="block truncate text-xs text-slate-500 dark:text-[#9aa0a6]">{{ crumb(r.to) }}</span>
@@ -251,7 +255,7 @@ onBeforeUnmount(() => {
       <aside class="h-fit rounded-xl border border-slate-200 p-4 dark:border-[#3c4043]">
         <div class="flex items-center gap-3">
           <img v-if="profile.avatar" :src="profile.avatar" alt="" width="56" height="56" class="size-14 shrink-0 rounded-full object-cover" />
-          <span v-else class="grid size-14 shrink-0 place-items-center rounded-full bg-brand-gradient text-lg font-bold text-white">RS</span>
+          <span v-else class="grid size-14 shrink-0 place-items-center rounded-full bg-brand-gradient text-lg font-bold text-white">{{ profile.initials }}</span>
           <span>
             <span class="block text-xl leading-tight text-slate-900 dark:text-[#e8eaed]">{{ profile.name }}</span>
             <span class="block text-sm text-slate-500 dark:text-[#9aa0a6]">{{ profile.role }}</span>

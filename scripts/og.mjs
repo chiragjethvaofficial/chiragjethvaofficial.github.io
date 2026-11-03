@@ -9,6 +9,11 @@ import satori from 'satori'
 import { Resvg } from '@resvg/resvg-js'
 import sharp from 'sharp'
 import { loadAllOrThrow, ROOT_DIR } from './content-fs.mjs'
+import { SITE_URL } from '../src/data/site.js'
+
+const NAME = 'Chirag Jethva'
+const INITIALS = NAME.split(/\s+/).map((w) => w[0]).join('').toUpperCase()
+const ADDRESS = SITE_URL.replace(/^https?:\/\//, '')
 
 const W = 1200
 const H = 630
@@ -61,9 +66,9 @@ const footer = (right) =>
     'div',
     { alignItems: 'center', justifyContent: 'space-between', fontSize: 24, color: '#a7f3d0' },
     h('div', { alignItems: 'center', gap: 14 },
-      h('div', { width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundImage: 'linear-gradient(135deg,#10b981,#22c55e,#0d9488)', fontWeight: 800, fontSize: 18, color: '#fff' }, 'RS'),
-      h('div', { fontWeight: 600, color: '#fff' }, 'Chirag Jethva'),
-      h('div', { color: '#6ee7b7' }, '· chiragjethvaofficial.github.io'),
+      h('div', { width: 44, height: 44, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundImage: 'linear-gradient(135deg,#10b981,#22c55e,#0d9488)', fontWeight: 800, fontSize: 18, color: '#fff' }, INITIALS),
+      h('div', { fontWeight: 600, color: '#fff' }, NAME),
+      h('div', { color: '#6ee7b7' }, `· ${ADDRESS}`),
     ),
     right ? h('div', { color: '#6ee7b7' }, right) : null,
   )
@@ -113,11 +118,11 @@ async function defaultCard(projects) {
       h('div', { flexDirection: 'column', gap: 22, maxWidth: 620 },
         pill('Android Developer · Kotlin & Compose', '#6ee7b7'),
         h('div', { flexDirection: 'column', fontSize: 92, fontWeight: 800, letterSpacing: -3, lineHeight: 1 },
-          h('div', {}, 'Chirag'),
-          h('div', { color: '#34d399' }, 'Jethva'),
+          h('div', {}, NAME.split(' ')[0]),
+          h('div', { color: '#34d399' }, NAME.split(' ').slice(1).join(' ')),
         ),
         h('div', { fontSize: 30, color: '#a7f3d0', lineHeight: 1.35 }, `${live.length} apps live on Google Play: dialers, SMS, galleries, calendar & a PDF editor`),
-        h('div', { fontSize: 24, color: '#6ee7b7' }, 'chiragjethvaofficial.github.io'),
+        h('div', { fontSize: 24, color: '#6ee7b7' }, ADDRESS),
       ),
       h('div', { flexWrap: 'wrap', width: 3 * 118 + 2 * 22, gap: 22, transform: 'rotate(-6deg)' },
         icons.map((src) => img(src, { width: 118, height: 118, borderRadius: 28, boxShadow: '0 18px 40px rgba(0,0,0,0.5)' })),

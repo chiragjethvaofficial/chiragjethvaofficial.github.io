@@ -1,11 +1,14 @@
 // ─────────────────────────────────────────────────────────────
-// All site content lives here — every page reads from this file.
-// App icons live in /public/images/apps/ and are referenced as
-// '/images/apps/<file>'.
+// Profile, skills and career data (everything that isn't Markdown).
+// Projects, articles and code snippets live in /content.
+// Files in /public are referenced root-relative ('/images/x.webp')
+// and wrapped in withBase() so they work under any base path.
 // ─────────────────────────────────────────────────────────────
 
-export { SITE_URL } from './site.js'
+import { withBase } from './site.js'
 import { posts, projects } from '../content'
+
+export { SITE_URL } from './site.js'
 
 const liveCount = projects.filter((p) => p.status === 'live').length
 
@@ -14,20 +17,23 @@ export const profile = {
   role: 'Android Developer',
   roles: ['Android Developer', 'Kotlin & Jetpack Compose', 'Shipping apps to Google Play', 'Clean Architecture fan'],
   tagline:
-    'I build and ship Android apps people use every day — dialers, SMS messengers, galleries, calendars and a full PDF editor.',
+    'I build and ship Android apps people use every day — dialers, contacts, a photo vault, an AI video generator, a fashion marketplace and everyday tools.',
   location: 'India',
   email: 'chiragjethvaofficial@gmail.com',
-  resumeUrl: '', // e.g. '/resume.pdf' after adding the file to /public
+  resumeUrl: withBase(''), // e.g. withBase('/resume.pdf') after adding public/resume.pdf
   availableForWork: true,
-  avatar: '', // TODO: add a photo as /public/images/avatar.webp and set '/images/avatar.webp'; '' shows initials
+  avatar: withBase(''), // e.g. withBase('/images/avatar.webp') after adding the photo; '' shows initials
   shortBio:
-    `Android developer working in Kotlin and Jetpack Compose. I have shipped ${liveCount} apps to Google Play — from default dialers and SMS clients that take over core phone roles, to media galleries and productivity tools.`,
+    `Android developer working in Kotlin and Jetpack Compose. I have shipped ${liveCount} apps to Google Play — from default dialers that take over core phone roles, to an AI video generator, a fashion marketplace, a photo vault and everyday tools.`,
   bio: [
     'I build native Android apps end to end: architecture, UI, background work, monetization and release. Most of my work lives on Google Play, where apps have to be fast, stable and pass strict policy review.',
     'A lot of it sits close to the platform — replacement phone dialers built on InCallService and CallScreeningService, default SMS/MMS messengers, exact-alarm scheduling, home-screen widgets, and media apps that handle Android 14 partial photo access.',
     'Right now I am building a full PDF reader and editor: pdf.js running inside a WebView bridged to Kotlin, with annotation, signatures, in-place text editing, form filling, password lock and a camera document scanner, split across ~15 Clean Architecture modules.',
   ],
 }
+
+// Shown wherever there is no avatar photo ('CJ').
+profile.initials = profile.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2).toUpperCase()
 
 export const socials = [
   { name: 'GitHub', url: 'https://github.com/chiragjethvaofficial', icon: 'github' },
@@ -36,16 +42,12 @@ export const socials = [
   // { name: 'Instagram', url: 'https://www.instagram.com/your-handle/', icon: 'instagram' },
 ]
 
-// Crypto tips, shown in the Support dialog (Contact page + footer). null hides it.
-// e.g. { label: 'Binance Pay', payId: 'your-id', qr: '/images/support/binance-pay.webp' }
-export const support = null
-
 export const skills = [
   { group: 'Languages', items: ['Kotlin', 'Java', 'JavaScript', 'SQL'] },
   { group: 'Android UI', items: ['Jetpack Compose', 'Material 3', 'XML Views', 'ViewBinding', 'Navigation', 'Lottie'] },
   { group: 'Architecture & DI', items: ['Clean Architecture', 'MVVM', 'Multi-module', 'Hilt', 'Coroutines', 'Flow', 'RxJava'] },
   { group: 'Data & Background', items: ['Room', 'DataStore', 'Realm', 'WorkManager', 'Retrofit', 'Foreground Services'] },
-  { group: 'Media & Camera', items: ['Media3 ExoPlayer', 'Coil', 'Glide', 'CameraX', 'OpenCV', 'LiteRT', 'PDFBox', 'pdf.js'] },
+  { group: 'Media & Camera', items: ['Media3 ExoPlayer', 'Coil', 'Glide', 'CameraX', 'OpenCV', 'PDFBox', 'pdf.js'] },
   { group: 'Platform & Telephony', items: ['InCallService', 'CallScreeningService', 'Default SMS role', 'App Widgets', 'Exact Alarms', 'Biometric'] },
   { group: 'Firebase & Monetization', items: ['Firebase', 'Remote Config', 'Crashlytics', 'AdMob', 'UMP Consent', 'Play Billing'] },
   { group: 'Tooling & Release', items: ['Gradle KTS', 'Baseline Profiles', 'Macrobenchmark', 'In-app Updates', 'Git'] },

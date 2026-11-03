@@ -3,7 +3,7 @@ title: "Media3 ExoPlayer"
 file: "VideoPlayer.kt"
 caption: "Video and audio playback wrapped in a Compose-friendly, leak-free player."
 order: 7
-relatedProjects: [gallery-pro, alarm-clock, messages-compose]
+relatedProjects: []
 notes:
   - line: 4
     text: "remember keeps one player across recompositions instead of building a new one each frame."

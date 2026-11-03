@@ -12,33 +12,27 @@ const steps = [
     icon: '📞',
     ask: 'What matters most on a call?',
     picks: [
-      { label: 'Block spam, theme my calls', slug: 'phone-call' },
+      { label: 'Block spam, T9 dialpad', slug: 'phone-dialer-contacts-calls' },
       { label: 'Big caller ID and speed dial', slug: 'phone-caller-contacts' },
-      { label: 'Contacts first, custom call screen', slug: 'contacts-dialer' },
-    ],
-  },
-  {
-    id: 'messages',
-    label: 'Messages',
-    icon: '💬',
-    ask: 'How do you text?',
-    picks: [
-      { label: 'A fresh, modern SMS app', slug: 'messages-compose' },
-      { label: 'Schedule, block and back up texts', slug: 'messages-sms' },
-      { label: 'All my social apps in one hub', slug: 'messenger-all-social' },
+      { label: 'A simple contacts manager', slug: 'contacts' },
     ],
   },
   {
     id: 'photos',
-    label: 'Photos',
+    label: 'Photos & video',
     icon: '🖼️',
     ask: 'What do you do with photos?',
     picks: [
-      { label: 'Scroll a fast timeline and edit', slug: 'gallery-pro' },
-      { label: 'Albums and a video player', slug: 'gallery-photo-album' },
-      { label: 'Lock the private ones away', slug: 'gallery-locker' },
-      { label: 'Turn them into music videos', slug: 'noys-music-video-maker' },
+      { label: 'Albums, editing and a private vault', slug: 'gallery-locker' },
+      { label: 'Turn them into AI videos', slug: 'vidix-ai-video-generator' },
     ],
+  },
+  {
+    id: 'fashion',
+    label: 'Fashion',
+    icon: '👗',
+    ask: 'Looking for an outfit?',
+    picks: [{ label: 'Buy, sell or rent clothes', slug: 'zenzi-clothes-buy-rent' }],
   },
   {
     id: 'work',
@@ -46,10 +40,8 @@ const steps = [
     icon: '⏰',
     ask: 'What needs sorting out?',
     picks: [
-      { label: 'Holidays, events and widgets', slug: 'calendar-2026' },
-      { label: 'Actually waking up on time', slug: 'alarm-clock' },
-      { label: 'Reading, signing and editing PDFs', slug: 'pdf-reader' },
-      { label: 'Recording audio', slug: 'voice-recorder' },
+      { label: 'Actually waking up on time', slug: 'alarm-clock-stopwatch-timer' },
+      { label: 'EMI, loan and GST sums', slug: 'calculator' },
     ],
   },
 ]

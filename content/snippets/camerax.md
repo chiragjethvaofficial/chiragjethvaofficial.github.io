@@ -3,7 +3,7 @@ title: "CameraX"
 file: "ScannerCamera.kt"
 caption: "Document scanning: a lifecycle-aware camera feeding frames to on-device edge detection."
 order: 8
-relatedProjects: [pdf-reader]
+relatedProjects: []
 notes:
   - line: 2
     text: "MINIMIZE_LATENCY makes the shutter feel instant, which suits scanning many pages in a row."

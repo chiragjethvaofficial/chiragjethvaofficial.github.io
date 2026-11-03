@@ -63,7 +63,7 @@ const shown = computed(() => {
                   <AppIcon name="close" class="size-3.5" />
                 </button>
                 <img v-if="profile.avatar" :src="profile.avatar" alt="" width="24" height="24" class="size-6 shrink-0 rounded-full object-cover" aria-hidden="true" />
-                <span v-else class="grid size-6 shrink-0 place-items-center rounded-full bg-brand-gradient text-[9px] font-bold text-white" aria-hidden="true">RS</span>
+                <span v-else class="grid size-6 shrink-0 place-items-center rounded-full bg-brand-gradient text-[9px] font-bold text-white" aria-hidden="true">{{ profile.initials }}</span>
               </label>
             </div>
 

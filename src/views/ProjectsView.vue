@@ -97,7 +97,7 @@ const pill = (on) =>
         <input
           v-model.trim="q"
           type="search"
-          placeholder="Search by app, feature or tech — try “Compose”, “dialer”, “PDF”…"
+          placeholder="Search by app, feature or tech — try “dialer”, “vault”, “calculator”…"
           class="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 pr-4 pl-12 text-slate-900 placeholder:text-slate-400 focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-500/20 focus:outline-none dark:border-slate-800 dark:bg-slate-950 dark:text-white"
         />
       </label>

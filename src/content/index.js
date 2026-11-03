@@ -1,7 +1,8 @@
-// Site content loaded from Markdown files in /content (see docs/SITE_PLAN.md §3).
+// Site content loaded from Markdown files in /content (see docs/CONTENT.md).
 // Each .md compiles to a Vue component (the body) that also exports its
 // frontmatter. Validation happens at build time (scripts/content-fs.mjs).
 import { slugFromPath } from './schema-lite'
+import { withBase } from '../data/site.js'
 
 const play = (id) => `https://play.google.com/store/apps/details?id=${id}`
 const STATUS_ORDER = { 'in-progress': 0, live: 1, completed: 2 }
@@ -19,9 +20,10 @@ export const projects = Object.entries(projectModules)
       slug: slugFromPath(path),
       featured: false,
       order: 100,
-      icon: '',
-      screenshots: [],
       ...fm,
+      // Frontmatter stores root-relative paths; resolve them against the base path.
+      icon: withBase(fm.icon ?? ''),
+      screenshots: (fm.screenshots ?? []).map((s) => ({ ...s, src: withBase(s.src) })),
       playUrl: fm.playPackage ? play(fm.playPackage) : undefined,
       Body: mod.default,
     }
@@ -50,7 +52,7 @@ export const snippets = Object.entries(snippetModules)
   .map(([path, mod]) => ({ slug: slugFromPath(path), order: 100, notes: [], relatedProjects: [], ...frontmatterOf(mod), Body: mod.default }))
   .sort((a, b) => a.order - b.order)
 
-export const types =[...new Set(projects.map((p) => p.type))]
+export const types = [...new Set(projects.map((p) => p.type))]
 export const postTags = [...new Set(posts.flatMap((p) => p.tags))].sort()
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

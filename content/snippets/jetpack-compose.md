@@ -4,7 +4,7 @@ file: "GalleryScreen.kt"
 caption: "Stateless, previewable UI: state flows down, events flow up. Tap the chips in the preview to fire onSelect."
 order: 1
 preview: compose-filter
-relatedProjects: [gallery-pro, messages-compose, pdf-reader]
+relatedProjects: []
 notes:
   - line: 2
     text: "Stateless composable: it receives state and reports events (state hoisting), so it is easy to preview, reuse and test."

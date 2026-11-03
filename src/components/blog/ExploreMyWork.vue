@@ -7,27 +7,27 @@ import AppIcon from '../AppIcon.vue'
 // App and article details are read from the content files.
 const paths = [
   {
-    name: 'Polished interfaces',
-    skill: 'Jetpack Compose',
-    icon: 'sparkle',
-    intro: 'From a message thread to a photo timeline: Compose in apps built for everyday use.',
-    apps: ['messages-compose', 'gallery-pro'],
-    article: 'shipping-android-apps-template-remote-config-baseline-profiles',
-  },
-  {
     name: 'Deep platform work',
     skill: 'Telephony & system roles',
     icon: 'android',
-    intro: 'Apps that take over core phone roles, from handling calls to screening incoming numbers.',
-    apps: ['phone-call', 'phone-caller-contacts'],
+    intro: 'Apps that take over core phone roles, from handling calls to blocking unwanted numbers.',
+    apps: ['phone-caller-contacts', 'phone-dialer-contacts-calls'],
     article: 'android-dialer-incallservice-callscreeningservice',
+  },
+  {
+    name: 'Private media',
+    skill: 'Biometric & WorkManager',
+    icon: 'sparkle',
+    intro: 'A photo gallery with a vault locked by pattern or fingerprint, and media loaded in the background.',
+    apps: ['gallery-locker'],
+    article: 'shipping-android-apps-template-remote-config-baseline-profiles',
   },
   {
     name: 'A tricky editing problem',
     skill: 'Kotlin + pdf.js',
     icon: 'code',
-    intro: 'Where a native Android app meets a web-powered PDF editor, and how they talk.',
-    apps: ['pdf-reader'],
+    intro: 'Where a native Android app meets a web-powered PDF editor, and how the two sides talk.',
+    apps: [],
     article: 'pdf-editor-pdfjs-webview-android',
   },
 ]
@@ -93,9 +93,9 @@ function onKey(e) {
         <li class="relative flex gap-4">
           <span class="z-10 grid size-6 shrink-0 place-items-center rounded-full bg-brand-gradient font-mono text-[11px] font-bold text-white">1</span>
           <div class="min-w-0 flex-1">
-            <p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">Meet the app</p>
+            <p class="text-xs font-semibold tracking-wide text-slate-500 uppercase">{{ active.apps.length ? 'Meet the app' : 'The problem' }}</p>
             <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">{{ active.intro }}</p>
-            <div class="mt-3 grid gap-2 sm:grid-cols-2">
+            <div v-if="active.apps.length" class="mt-3 grid gap-2 sm:grid-cols-2">
               <RouterLink
                 v-for="a in active.apps"
                 :key="a.slug"

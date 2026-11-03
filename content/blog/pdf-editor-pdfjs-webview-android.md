@@ -3,11 +3,11 @@ title: "Building a PDF editor on Android with pdf.js inside a WebView"
 description: "Why my Android PDF editor runs pdf.js in a WebView bridged to Kotlin, and the lessons from building signatures, text editing and form filling on top of it."
 date: 2026-10-02
 tags: ["Android", "Kotlin", "Jetpack Compose", "pdf.js", "WebView"]
-relatedProjects: ["pdf-reader"]
+relatedProjects: []
 draft: false
 ---
 
-Most Android PDF apps pick one of two paths: render pages with the platform `PdfRenderer` (view-only), or license a commercial SDK. For my [PDF Reader & Editor](/projects/pdf-reader) I took a third route: **pdf.js running inside a WebView, bridged to Kotlin and driven by a Jetpack Compose UI.**
+Most Android PDF apps pick one of two paths: render pages with the platform `PdfRenderer` (view-only), or license a commercial SDK. For my PDF Reader & Editor I took a third route: **pdf.js running inside a WebView, bridged to Kotlin and driven by a Jetpack Compose UI.**
 
 This post covers how that bridge is structured, and the hard-won lessons from building real editing features on top of it.
 
@@ -74,7 +74,7 @@ Around the editor sit the "document toolbox" features:
 - password lock and unlock
 - watermarks
 - image ↔ PDF and PDF ↔ Word conversion (Apache POI)
-- a camera **document scanner**: CameraX capture, with OpenCV plus a LiteRT model for on-device edge detection and perspective correction
+- a camera **document scanner**: CameraX capture, with OpenCV for on-device edge detection and perspective correction
 
 ## Takeaways
 
@@ -83,4 +83,4 @@ Around the editor sit the "document toolbox" features:
 - For geometry, measure the rendered result instead of re-deriving it.
 - Live WebView debugging over CDP is a superpower for hybrid apps.
 
-The app is still in active development. See the [project page](/projects/pdf-reader) for the full feature list.
+The app is still in active development.

@@ -53,12 +53,12 @@ for (const p of targets) {
   // Replace (or add) the screenshots: block in the frontmatter, leaving the rest untouched.
   const file = join(ROOT_DIR, 'content/projects', `${p.slug}.md`)
   const text = readFileSync(file, 'utf8')
-  const end = text.indexOf('\n---', 3)
+  const end = text.indexOf('\n---', 3) + 1 // keep the last frontmatter line's newline in `fm`
   let fm = text.slice(0, end).replace(/\nscreenshots:\n(?: {2}- [^\n]*\n(?: {4}[^\n]*\n)*)*/, '\n').replace(/\nscreenshots: \[\]/, '')
   fm = fm.replace(/\n*$/, '\n')
   const block =
     'screenshots:\n' +
-    entries.map((e) => `  - src: ${e.src}\n    alt: ${JSON.stringify(e.alt)}\n    width: ${e.width}\n    height: ${e.height}`).join('\n')
+    entries.map((e) => `  - src: ${e.src}\n    alt: ${JSON.stringify(e.alt)}\n    width: ${e.width}\n    height: ${e.height}\n`).join('')
   writeFileSync(file, fm + block + text.slice(end))
   console.log(`✓ ${p.slug}: ${entries.length} screenshots (${entries.map((e) => `${e.width}×${e.height}`).join(', ')})`)
 }

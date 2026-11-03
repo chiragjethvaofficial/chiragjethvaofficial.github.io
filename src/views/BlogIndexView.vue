@@ -47,7 +47,7 @@ const pill = (on) =>
         title="Notes from building Android apps"
         subtitle="Deep dives into the problems I solved shipping real apps: telecom APIs, PDF editing, Compose and Play Store engineering."
       />
-      <a href="/blog/rss.xml" class="btn-ghost mb-10" target="_blank" rel="noopener">RSS feed</a>
+      <a :href="`${SITE_URL}/blog/rss.xml`" class="btn-ghost mb-10" target="_blank" rel="noopener">RSS feed</a>
     </div>
 
     <div v-if="postTags.length > 1" class="mb-8 flex flex-wrap gap-2">

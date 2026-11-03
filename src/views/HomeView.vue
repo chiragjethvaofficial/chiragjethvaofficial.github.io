@@ -34,7 +34,8 @@ useSeo({
 })
 
 const featured = computed(() => projects.filter((p) => p.featured))
-const flagship = projects.find((p) => p.slug === 'pdf-reader')
+// Spotlight for an app still in development (hidden when there is none).
+const flagship = projects.find((p) => p.status === 'in-progress')
 const topSkills = computed(() => skills.flatMap((g) => g.items).slice(0, 18))
 const heroIcons = projects.filter((p) => p.icon && p.status === 'live').slice(0, 9)
 
@@ -148,7 +149,7 @@ const phoneTilt = computed(() => {
     <section class="py-20">
       <div class="container-page">
         <div class="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading v-reveal eyebrow="// featured" title="Selected work" subtitle="A few apps I'm most proud of — from a full PDF editor to system-level dialers." />
+          <SectionHeading v-reveal eyebrow="// featured" title="Selected work" subtitle="A few apps I'm most proud of — from an AI video generator and a fashion marketplace to system-level dialers." />
           <RouterLink to="/projects" class="btn-ghost mb-10">All {{ projects.length }} projects</RouterLink>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

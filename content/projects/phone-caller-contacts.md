@@ -3,7 +3,7 @@ title: "Phone Caller - Contacts"
 type: "Dialer & Contacts"
 status: live
 featured: false
-order: 70
+order: 80
 icon: /images/apps/phone-caller-contacts.webp
 playPackage: com.calldialerpro.mobiledialer.phonebookdialer
 developer: "Phone Caller"

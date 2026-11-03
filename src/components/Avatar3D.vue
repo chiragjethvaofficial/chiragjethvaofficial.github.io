@@ -273,13 +273,13 @@ onBeforeUnmount(() => raf && cancelAnimationFrame(raf))
               draggable="false"
               class="size-full rounded-full object-cover"
             />
-            <span v-else class="grid size-full place-items-center font-extrabold text-white" :style="{ fontSize: `${PX * 0.32}px` }">RS</span>
+            <span v-else class="grid size-full place-items-center font-extrabold text-white" :style="{ fontSize: `${PX * 0.32}px` }">{{ profile.initials }}</span>
           </span>
           <span class="a3d-shine" aria-hidden="true" />
 
           <!-- back: monogram -->
           <span class="a3d-back bg-brand-gradient" aria-hidden="true">
-            <span class="font-extrabold text-white" :style="{ fontSize: `${PX * 0.3}px` }">RS</span>
+            <span class="font-extrabold text-white" :style="{ fontSize: `${PX * 0.3}px` }">{{ profile.initials }}</span>
             <span v-if="size !== 'sm'" class="mt-1 font-mono text-white/80" :style="{ fontSize: `${Math.max(9, PX * 0.075)}px` }">Kotlin · Compose</span>
           </span>
 

@@ -3,11 +3,11 @@ title: "Writing a replacement phone dialer: InCallService and CallScreeningServi
 description: "How a third-party Android dialer takes over calls with InCallService, picks the right incoming-call UI, and blocks spam with CallScreeningService."
 date: 2026-10-01
 tags: ["Android", "Kotlin", "Telecom", "InCallService", "CallScreeningService"]
-relatedProjects: ["phone-call", "contacts-dialer", "phone-caller-contacts"]
+relatedProjects: ["phone-caller-contacts", "phone-dialer-contacts-calls", "contacts"]
 draft: false
 ---
 
-Android lets a third-party app become the **default phone app**. When it does, the system hands it every call: incoming, outgoing, conference. The app is responsible for the whole experience. I've shipped several dialers on Google Play, including [Phone Call](/projects/phone-call) and [Contacts](/projects/contacts-dialer). This post walks through the two framework services that make it possible, and the decisions that matter in practice.
+Android lets a third-party app become the **default phone app**. When it does, the system hands it every call: incoming, outgoing, conference. The app is responsible for the whole experience. I've shipped several dialers on Google Play, including [Phone Caller](/projects/phone-caller-contacts) and [Phone Dialer](/projects/phone-dialer-contacts-calls). This post walks through the two framework services that make it possible, and the decisions that matter in practice.
 
 ## Becoming the default dialer
 
@@ -98,4 +98,4 @@ The block and spam lists live in **Room**. Two rules matter here: answer fast, a
 - Pick the incoming-call UI from context (locked state, foreground use, permissions) instead of always going full-screen.
 - In `CallScreeningService`, respond fast and fail open. Choose silent drop vs. logged rejection on purpose.
 
-These patterns power [Phone Call](/projects/phone-call), [Contacts](/projects/contacts-dialer) and [Phone Caller](/projects/phone-caller-contacts), all live on Google Play.
+These patterns power dialers such as [Phone Caller](/projects/phone-caller-contacts), [Phone Dialer](/projects/phone-dialer-contacts-calls) and [Contacts](/projects/contacts), all live on Google Play.

@@ -1,9 +1,9 @@
 ---
 title: "Chirag Jethva: Android developer, Kotlin & Jetpack Compose"
-description: "Explore Chirag Jethva's Android work with Kotlin and Jetpack Compose: Messages, Gallery Pro, a PDF editor, and technical notes behind the apps."
+description: "Explore Chirag Jethva's Android work with Kotlin and Jetpack Compose: dialers, a photo vault, an AI video generator, and technical notes behind the apps."
 date: 2026-10-06
 tags: ["Android", "Jetpack Compose", "Kotlin", "Portfolio"]
-relatedProjects: ["messages-compose", "gallery-pro", "pdf-reader"]
+relatedProjects: ["vidix-ai-video-generator", "gallery-locker", "phone-dialer-contacts-calls"]
 draft: false
 ---
 
@@ -20,7 +20,7 @@ import ShortcutKeys from '/src/components/blog/ShortcutKeys.vue'
 
 You remember a name. Maybe an Android app. Maybe a conversation about Jetpack Compose. But you don't have the link.
 
-Here is a small guide to finding my work: **Chirag Jethva**, plus the thing you remember. Try `chirag jethva android`, `chirag jethva jetpack compose`, or `chirag jethva kotlin`.
+Here is a small guide to finding my work: **Chirag Jethva**, plus the thing you remember. Try `chirag jethva android`, `chirag jethva apps`, or `chirag jethva kotlin`.
 
 I'm an Android developer working with Kotlin and Jetpack Compose. This portfolio brings together my apps, the technical decisions behind them, and the notes I write along the way. Think of this page as a few different doors into that work.
 
@@ -40,19 +40,19 @@ Already on the site? Then you don't need Google at all. The built-in search goes
 
 If you remember my name and what I build, start here. My [About page](/about) covers my skills and experience, while the [project collection](/projects) gives you the apps themselves.
 
-My work includes dialers, SMS messengers, galleries and productivity tools. Open a project to move beyond a name and an icon: each case study explains what the app does and some of the engineering behind it.
+My work includes dialers and contacts apps, a photo gallery, a fashion marketplace, an AI video generator and everyday tools. Open a project to move beyond a name and an icon: each case study explains what the app does and some of the engineering behind it.
 
 Or browse them the way you'd browse a store: the phone below lists every app that is live on Google Play.
 
 <PlaySearchPhone />
 
-## “Chirag Jethva Jetpack Compose”: Messages and Gallery Pro
+## “Chirag Jethva apps”: from dialers to an AI video generator
 
-Remember the toolkit? Try my name with **Jetpack Compose**.
+Remember an app rather than a skill? Try my name with **apps**.
 
-Two places to begin are [Messages](/projects/messages-compose), an SMS and MMS app, and [Gallery Pro](/projects/gallery-pro). Their project pages connect the interface to the app's features and technical stack.
+Two places to begin are [Vidix](/projects/vidix-ai-video-generator), an AI photo and video generator, and [Gallery - Photo Gallery, Vault](/projects/gallery-locker), a gallery with a private vault. Their project pages connect each app's features to its technical stack.
 
-I like that a portfolio can answer the next question, too: after “Do you work with Compose?” comes “What have you built with it?” These pages are where I put that context.
+I like that a portfolio can answer the next question, too: after “What kind of apps do you build?” comes “Can I see one?” These pages are where I put that context.
 
 The same goes for the rest of the stack. Pick a skill to see exactly which apps use it, straight from each project's tech list:
 

@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { getPost, getProject, profile, SITE_URL, socials, statuses } from '../../data/portfolio'
+import { withBase } from '../../data/site.js'
 import AppIcon from '../AppIcon.vue'
 
 // How a link to the site unfurls in X, WhatsApp and Slack (blog: find-chirag-jethva-android-developer).
@@ -35,7 +36,7 @@ const pages = [
     image: '/og/default.png',
     note: 'My Android work, all in one place:',
   },
-  projectPage('phone-call'),
+  projectPage('vidix-ai-video-generator'),
   postPage('pdf-editor-pdfjs-webview-android'),
 ]
 const platforms = [
@@ -48,7 +49,8 @@ const pageIndex = ref(0)
 const platform = ref('x')
 const page = computed(() => pages[pageIndex.value])
 const url = computed(() => SITE_URL + page.value.path)
-const image = computed(() => SITE_URL + page.value.image)
+// Loaded from this site's own origin so the preview works locally as well as in production.
+const image = computed(() => withBase(page.value.image))
 const xUrl = socials.find((s) => s.icon === 'x')?.url
 const xHandle = xUrl ? '@' + new URL(xUrl).pathname.split('/').filter(Boolean)[0] : DOMAIN
 
@@ -122,7 +124,7 @@ async function copy() {
         <div v-if="platform === 'x'" :key="'x' + pageIndex" class="bg-white p-5 sm:p-6 dark:bg-black">
           <div class="mx-auto flex max-w-lg gap-3">
             <img v-if="profile.avatar" :src="profile.avatar" alt="" width="40" height="40" class="size-10 shrink-0 rounded-full object-cover" />
-            <span v-else class="grid size-10 shrink-0 place-items-center rounded-full bg-brand-gradient text-xs font-bold text-white">RS</span>
+            <span v-else class="grid size-10 shrink-0 place-items-center rounded-full bg-brand-gradient text-xs font-bold text-white">{{ profile.initials }}</span>
             <div class="min-w-0 flex-1">
               <p class="text-sm">
                 <span class="font-bold text-slate-900 dark:text-[#e7e9ea]">{{ profile.name }}</span>
@@ -173,7 +175,7 @@ async function copy() {
         <div v-else :key="'s' + pageIndex" class="bg-white p-5 sm:p-6 dark:bg-[#1a1d21]">
           <div class="mx-auto flex max-w-lg gap-3">
             <img v-if="profile.avatar" :src="profile.avatar" alt="" width="36" height="36" class="size-9 shrink-0 rounded-lg object-cover" />
-            <span v-else class="grid size-9 shrink-0 place-items-center rounded-lg bg-brand-gradient text-xs font-bold text-white">RS</span>
+            <span v-else class="grid size-9 shrink-0 place-items-center rounded-lg bg-brand-gradient text-xs font-bold text-white">{{ profile.initials }}</span>
             <div class="min-w-0 flex-1">
               <p class="text-sm">
                 <span class="font-bold text-slate-900 dark:text-[#d1d2d3]">{{ profile.name }}</span>
@@ -182,7 +184,7 @@ async function copy() {
               <p class="text-sm text-slate-800 dark:text-[#d1d2d3]">{{ page.note }} <a :href="url" target="_blank" rel="noopener" class="break-all text-[#1264a3] hover:underline dark:text-[#1d9bd1]">{{ url }}</a></p>
               <div class="mt-2 border-l-4 border-slate-300 pl-3 dark:border-[#35373b]">
                 <p class="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[#d1d2d3]">
-                  <span class="grid size-4 place-items-center rounded bg-brand-gradient text-[7px] text-white">RS</span>{{ SITE_NAME }}
+                  <span class="grid size-4 place-items-center rounded bg-brand-gradient text-[7px] text-white">{{ profile.initials }}</span>{{ SITE_NAME }}
                 </p>
                 <a :href="url" target="_blank" rel="noopener" class="mt-1 block text-sm font-bold text-[#1264a3] hover:underline dark:text-[#1d9bd1]">{{ page.title }}</a>
                 <p class="mt-0.5 line-clamp-3 text-sm text-slate-700 dark:text-[#d1d2d3]">{{ page.description }}</p>

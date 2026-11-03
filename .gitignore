@@ -1,7 +1,7 @@
 node_modules
 dist
 .idea
+.vscode
 *.log
 .DS_Store
-.claude/settings.local.json
-.mcp.json
+.env*
